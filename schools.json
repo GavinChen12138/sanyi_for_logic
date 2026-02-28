@@ -1,0 +1,4496 @@
+[
+  {
+    "id": "school_1",
+    "name": "杭州电子科技大学",
+    "code": "",
+    "tags": [
+      "省重点一梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.15,
+        "interview": 0.25,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_1_g1",
+        "name": "综合组",
+        "score_line": 0,
+        "rules": {
+          "A": 15,
+          "B": 10,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0",
+        "last_year_composite_score": 76.3125,
+        "admission_count": 450,
+        "preliminary_line": 0,
+        "description": "包含专业：计算机科学与技术、软件工程、电子信息类（电子信息学院）、集成电路设计与集成系统、数字媒体技术、信息安全、网络工程、电子信息类（通信学院）、智能科学与技术、电气工程及其自动化、自动化、机械设计制造及其自动化、车辆工程、智能制造工程、材料科学与工程、管理科学与工程类、数学类、光电信息科学与工程、应用物理学、工业设计、工业工程、统计学、环境工程、会计学、审计学、财务管理、工商管理、金融学、法学、英语、传播学等"
+      }
+    ]
+  },
+  {
+    "id": "school_2",
+    "name": "杭州师范大学",
+    "code": "",
+    "tags": [
+      "省重点一梯队",
+      "normal"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.1,
+        "interview": 0.3,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_2_g1",
+        "name": "护理学",
+        "score_line": 45,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 1,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 45
+        },
+        "entry_rule_text": "45.0",
+        "last_year_composite_score": 76.92,
+        "admission_count": 160,
+        "preliminary_line": 55,
+        "description": "包含专业：护理学等"
+      },
+      {
+        "id": "school_2_g2",
+        "name": "历史复硕",
+        "score_line": 85,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 1,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 85
+        },
+        "entry_rule_text": "85.0",
+        "last_year_composite_score": 87.153,
+        "admission_count": 40,
+        "preliminary_line": 94,
+        "description": "包含专业：历史学（历史学+思想政治教育本硕衔接试验班）（师范）等"
+      },
+      {
+        "id": "school_2_g3",
+        "name": "特殊教育(师范)",
+        "score_line": 65,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 1,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 65
+        },
+        "entry_rule_text": "65.0",
+        "last_year_composite_score": 81.681,
+        "admission_count": 30,
+        "preliminary_line": 73,
+        "description": "包含专业：特殊教育（师范）等"
+      },
+      {
+        "id": "school_2_g4",
+        "name": "物理复硕",
+        "score_line": 85,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 1,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 85
+        },
+        "entry_rule_text": "85.0",
+        "last_year_composite_score": 86.554,
+        "admission_count": 40,
+        "preliminary_line": 97,
+        "description": "包含专业：物理学（物理学+教育技术学本硕衔接试验班）（师范）等"
+      },
+      {
+        "id": "school_2_g5",
+        "name": "小学教育(师范)",
+        "score_line": 75,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 1,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 75
+        },
+        "entry_rule_text": "75.0",
+        "last_year_composite_score": 82.979,
+        "admission_count": 70,
+        "preliminary_line": 82,
+        "description": "包含专业：小学教育（师范）等"
+      },
+      {
+        "id": "school_2_g6",
+        "name": "学前教育(师范)",
+        "score_line": 65,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 1,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 65
+        },
+        "entry_rule_text": "65.0",
+        "last_year_composite_score": 80.679,
+        "admission_count": 60,
+        "preliminary_line": 70,
+        "description": "包含专业：学前教育（师范）等"
+      }
+    ]
+  },
+  {
+    "id": "school_3",
+    "name": "杭州医学院",
+    "code": "",
+    "tags": [
+      "公办一梯队",
+      "medical"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_3_g1",
+        "name": "临床医学",
+        "score_line": 90,
+        "rules": {
+          "A": 10,
+          "B": 9,
+          "C": 5,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 90
+        },
+        "entry_rule_text": "90.0",
+        "last_year_composite_score": 78.12,
+        "admission_count": 15,
+        "preliminary_line": 95,
+        "description": "包含专业：临床医学等"
+      },
+      {
+        "id": "school_3_g2",
+        "name": "医学信息工程",
+        "score_line": 85,
+        "rules": {
+          "A": 10,
+          "B": 9,
+          "C": 5,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 85
+        },
+        "entry_rule_text": "85.0",
+        "last_year_composite_score": 74.2,
+        "admission_count": 15,
+        "preliminary_line": 89,
+        "description": "包含专业：医学信息工程等"
+      }
+    ]
+  },
+  {
+    "id": "school_4",
+    "name": "湖州师范学院",
+    "code": "",
+    "tags": [
+      "公办一梯队",
+      "normal"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_4_g1",
+        "name": "非师范类",
+        "score_line": null,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A+B大于等于5",
+        "last_year_composite_score": 67.94,
+        "admission_count": 145,
+        "preliminary_line": 58.8,
+        "description": "包含专业：电气工程及其自动化、计算机科学与技术、制药工程、生物工程、新能源材料与器件、数据科学与大数据技术、水产养殖学（卓越班）、护理学等"
+      },
+      {
+        "id": "school_4_g2",
+        "name": "师范组1",
+        "score_line": null,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A+B大于等于7，且A不小于1",
+        "last_year_composite_score": 76.47,
+        "admission_count": 20,
+        "preliminary_line": 71.4,
+        "description": "包含专业：小学教育(师范)等"
+      },
+      {
+        "id": "school_4_g3",
+        "name": "师范组2",
+        "score_line": null,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A+B大于等于7，且A不小于1",
+        "last_year_composite_score": 70.16,
+        "admission_count": 70,
+        "preliminary_line": 51,
+        "description": "包含专业：教育技术学（师范）、数学与应用数学(师范)、物理学(师范)、化学(师范)等"
+      }
+    ]
+  },
+  {
+    "id": "school_5",
+    "name": "湖州学院",
+    "code": "",
+    "tags": [
+      "公办二梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_5_g1",
+        "name": "综合组",
+        "score_line": null,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A+B大于等于5",
+        "last_year_composite_score": 70.6,
+        "admission_count": 30,
+        "preliminary_line": 72,
+        "description": "包含专业：计算机科学与技术、电子信息工程、电气工程及其自动化等"
+      }
+    ]
+  },
+  {
+    "id": "school_6",
+    "name": "嘉兴大学",
+    "code": "",
+    "tags": [
+      "公办一梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.15,
+        "interview": 0.25,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_6_g1",
+        "name": "普通类",
+        "score_line": null,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A大于等于2，A+B大于等于4",
+        "last_year_composite_score": 87,
+        "admission_count": 32,
+        "preliminary_line": 76,
+        "description": "包含专业：日语、跨境电子商务、服装设计与工程、英语等"
+      },
+      {
+        "id": "school_6_g2",
+        "name": "师范类",
+        "score_line": null,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A大于等于3，A+B大于等于5",
+        "last_year_composite_score": 85,
+        "admission_count": 15,
+        "preliminary_line": 76,
+        "description": "包含专业：小学教育(师范)、学前教育(师范)等"
+      },
+      {
+        "id": "school_6_g3",
+        "name": "物理类",
+        "score_line": null,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A大于等于2，A+B大于等于4",
+        "last_year_composite_score": 73,
+        "admission_count": 123,
+        "preliminary_line": 67,
+        "description": "包含专业：化学工程与工艺、应用化学、纺织工程、轻化工程、高分子材料与工程、非织造材料与工程、工程管理、工业设计、建筑环境与能源应用工程、土木工程、药学、生物工程、环境工程等"
+      }
+    ]
+  },
+  {
+    "id": "school_7",
+    "name": "嘉兴南湖学院",
+    "code": "",
+    "tags": [
+      "公办二梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.1,
+        "interview": 0.3,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_7_g1",
+        "name": "综合组",
+        "score_line": 20,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 20
+        },
+        "entry_rule_text": "20.0",
+        "last_year_composite_score": 60,
+        "admission_count": 60,
+        "preliminary_line": 54,
+        "description": "包含专业：工业设计、土木工程、化学工艺与工程、机械设计制造及其自动化等"
+      }
+    ]
+  },
+  {
+    "id": "school_8",
+    "name": "金华职业技术大学",
+    "code": "",
+    "tags": [
+      "公办一梯队",
+      "vocational"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.1,
+        "interview": 0.3,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_8_g1",
+        "name": "学前教育(师范)",
+        "score_line": 192,
+        "rules": {
+          "A": 30,
+          "B": 25,
+          "C": 21,
+          "D": 18,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 192
+        },
+        "entry_rule_text": "192.0",
+        "last_year_composite_score": 0,
+        "admission_count": 20,
+        "preliminary_line": 243,
+        "description": "包含专业：学前教育（师范）等"
+      }
+    ]
+  },
+  {
+    "id": "school_9",
+    "name": "丽水学院",
+    "code": "",
+    "tags": [
+      "公办二梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_9_g1",
+        "name": "普通类",
+        "score_line": null,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 1,
+          "E": 0
+        },
+        "required_subjects": [
+          "历史"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A+B大于等于5",
+        "last_year_composite_score": 75.52,
+        "admission_count": 100,
+        "preliminary_line": 70,
+        "description": "包含专业：小学教育（师范）、学前教育（师范）、民族学等"
+      }
+    ]
+  },
+  {
+    "id": "school_10",
+    "name": "宁波财经学院",
+    "code": "",
+    "tags": [
+      "民办学校"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.1,
+        "interview": 0.3,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_10_g1",
+        "name": "财务管理(家族财富管理) ",
+        "score_line": 60,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 77.04,
+        "admission_count": 30,
+        "preliminary_line": 91,
+        "description": "包含专业：财务管理(家族财富管理)等"
+      },
+      {
+        "id": "school_10_g2",
+        "name": "创业管理 ",
+        "score_line": 60,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 74.74,
+        "admission_count": 35,
+        "preliminary_line": 86,
+        "description": "包含专业：创业管理等"
+      },
+      {
+        "id": "school_10_g3",
+        "name": "工业设计 ",
+        "score_line": 60,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 72,
+        "admission_count": 25,
+        "preliminary_line": 85,
+        "description": "包含专业：工业设计等"
+      },
+      {
+        "id": "school_10_g4",
+        "name": "广播电视编导（中韩2+2学分互认班） ",
+        "score_line": 60,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 74.86,
+        "admission_count": 30,
+        "preliminary_line": 76,
+        "description": "包含专业：广播电视编导（中韩2+2学分互认班）等"
+      },
+      {
+        "id": "school_10_g5",
+        "name": "国际经济与贸易(大宗商品交易) ",
+        "score_line": 60,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 76.14,
+        "admission_count": 25,
+        "preliminary_line": 87,
+        "description": "包含专业：国际经济与贸易(大宗商品交易)等"
+      },
+      {
+        "id": "school_10_g6",
+        "name": "文化产业管理(文遗保护与利用) ",
+        "score_line": 60,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 75.14,
+        "admission_count": 25,
+        "preliminary_line": 87,
+        "description": "包含专业：文化产业管理(文遗保护与利用)等"
+      },
+      {
+        "id": "school_10_g7",
+        "name": "戏剧影视文学 ",
+        "score_line": 60,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 74.46,
+        "admission_count": 30,
+        "preliminary_line": 84,
+        "description": "包含专业：戏剧影视文学等"
+      }
+    ]
+  },
+  {
+    "id": "school_11",
+    "name": "宁波大学",
+    "code": "",
+    "tags": [
+      "省重点一梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.15,
+        "interview": 0.25,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_11_g1",
+        "name": "非师范类",
+        "score_line": 82,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 82
+        },
+        "entry_rule_text": "82.0",
+        "last_year_composite_score": 78.56,
+        "admission_count": 95,
+        "preliminary_line": 94,
+        "description": "包含专业：水产养殖学 （拔尖人才创新班）、物理学 （拔尖人才创新班）、生物技术 （拔尖人才创新班）、机械类、日语、德语、环境工程、历史学、汉语言文学、经济学、物流管理等"
+      },
+      {
+        "id": "school_11_g2",
+        "name": "师范类",
+        "score_line": 82,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "政治"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 82
+        },
+        "entry_rule_text": "82.0",
+        "last_year_composite_score": 83.22,
+        "admission_count": 235,
+        "preliminary_line": 90,
+        "description": "包含专业：小学教育（师范）、学前教育（师范）、思想政治教育（师范）、汉语言文学（师范）、英语（师范）、数学与应用数学 （师范）、物理学（师范）、地理科学（师范）等"
+      },
+      {
+        "id": "school_11_g3",
+        "name": "中外合作类",
+        "score_line": 82,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "地理"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 82
+        },
+        "entry_rule_text": "82.0",
+        "last_year_composite_score": 81.98,
+        "admission_count": 40,
+        "preliminary_line": 82,
+        "description": "包含专业：人文地理与城乡规划（中外合作办学） （中法合作）、旅游管理 （中外合作办学） （中法合作）等"
+      }
+    ]
+  },
+  {
+    "id": "school_12",
+    "name": "宁波工程学院",
+    "code": "",
+    "tags": [
+      "公办二梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_12_g1",
+        "name": "工业设计 ",
+        "score_line": null,
+        "rules": {
+          "A": 10,
+          "B": 5,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A等2门及以上或者A等与B等之和5门及以上，其余D等及以上。",
+        "last_year_composite_score": 67.04,
+        "admission_count": 15,
+        "preliminary_line": 53,
+        "description": "包含专业：工业设计等"
+      },
+      {
+        "id": "school_12_g2",
+        "name": "建筑学",
+        "score_line": null,
+        "rules": {
+          "A": 10,
+          "B": 5,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A等2门及以上或者A等与B等之和5门及以上，其余D等及以上。",
+        "last_year_composite_score": 73.8,
+        "admission_count": 15,
+        "preliminary_line": 57,
+        "description": "包含专业：建筑学等"
+      }
+    ]
+  },
+  {
+    "id": "school_13",
+    "name": "宁波诺丁汉大学",
+    "code": "",
+    "tags": [
+      "中外合办"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.1,
+        "interview": 0.3,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_13_g1",
+        "name": "综合组",
+        "score_line": 0,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "政治"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 77.87,
+        "admission_count": 180,
+        "preliminary_line": 85,
+        "description": "包含专业：国际商务(中外合作办学)、财务管理 (中外合作办学)、国际经济与贸易 (中外合作办学)、国际事务与国际关系 (中外合作办学)、传播学 (中外合作办学)、英语(中外合作办学)、英语  (中外合作办学)（2+2）、计算机科学与技术(中外合作办学)、数学与应用数学 (中外合作办学)、电气类(中外合作办学)、电气类(中外合作办学)(2+2)、环境科学(中外合作办学)(2+2)、化学(中外合作办学)(2+2)、建筑学(中外合作办学)等"
+      }
+    ]
+  },
+  {
+    "id": "school_14",
+    "name": "宁波幼儿师范高等专科学校",
+    "code": "",
+    "tags": [
+      "高职",
+      "normal"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.1,
+        "interview": 0.3,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_14_g1",
+        "name": "体育教育(幼教方向，师范)",
+        "score_line": 190,
+        "rules": {
+          "A": 30,
+          "B": 25,
+          "C": 21,
+          "D": 18,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 190
+        },
+        "entry_rule_text": "190.0",
+        "last_year_composite_score": 66,
+        "admission_count": 20,
+        "preliminary_line": 205,
+        "description": "包含专业：体育教育（师范）等"
+      },
+      {
+        "id": "school_14_g2",
+        "name": "音乐教育(幼教方向，师范)",
+        "score_line": 190,
+        "rules": {
+          "A": 30,
+          "B": 25,
+          "C": 21,
+          "D": 18,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 190
+        },
+        "entry_rule_text": "190.0",
+        "last_year_composite_score": 68.33,
+        "admission_count": 25,
+        "preliminary_line": 204,
+        "description": "包含专业：音乐教育（师范）等"
+      }
+    ]
+  },
+  {
+    "id": "school_15",
+    "name": "衢州学院",
+    "code": "",
+    "tags": [
+      "公办二梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_15_g1",
+        "name": "数学与应用数学 (师范) ",
+        "score_line": 3,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "历史"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 3
+        },
+        "entry_rule_text": "3门（含）以上为A等或A等与B等之和为5门（含）以上，其余科目成绩为D等（含）以上。",
+        "last_year_composite_score": 68.44,
+        "admission_count": 20,
+        "preliminary_line": 61,
+        "description": "包含专业：数学与应用数学 (师范)等"
+      },
+      {
+        "id": "school_15_g2",
+        "name": "小学教育 (师范) ",
+        "score_line": 3,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 3
+        },
+        "entry_rule_text": "3门（含）以上为A等或A等与B等之和为5门（含）以上，其余科目成绩为D等（含）以上。",
+        "last_year_composite_score": 72.24,
+        "admission_count": 15,
+        "preliminary_line": 73,
+        "description": "包含专业：小学教育 (师范)等"
+      },
+      {
+        "id": "school_15_g3",
+        "name": "英语 (师范) ",
+        "score_line": 3,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 3
+        },
+        "entry_rule_text": "3门（含）以上为A等或A等与B等之和为5门（含）以上，其余科目成绩为D等（含）以上。",
+        "last_year_composite_score": 74.24,
+        "admission_count": 15,
+        "preliminary_line": 70,
+        "description": "包含专业：英语 (师范)等"
+      }
+    ]
+  },
+  {
+    "id": "school_16",
+    "name": "绍兴文理学院",
+    "code": "",
+    "tags": [
+      "公办一梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_16_g1",
+        "name": "理工1类",
+        "score_line": 3,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 3
+        },
+        "entry_rule_text": "3A及以上，或A等与B等之和为5门及以上，其余D等及以上",
+        "last_year_composite_score": 63.3,
+        "admission_count": 50,
+        "preliminary_line": 62,
+        "description": "包含专业：土木工程、地质工程等"
+      },
+      {
+        "id": "school_16_g2",
+        "name": "理工2类",
+        "score_line": 3,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 3
+        },
+        "entry_rule_text": "3A及以上，或A等与B等之和为5门及以上，其余D等及以上",
+        "last_year_composite_score": 75.7,
+        "admission_count": 45,
+        "preliminary_line": 62,
+        "description": "包含专业：纺织工程、轻化工程等"
+      },
+      {
+        "id": "school_16_g3",
+        "name": "理工3类",
+        "score_line": 3,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 3
+        },
+        "entry_rule_text": "3A及以上，或A等与B等之和为5门及以上，其余D等及以上",
+        "last_year_composite_score": 82.3,
+        "admission_count": 40,
+        "preliminary_line": 62,
+        "description": "包含专业：高分子材料与工程、新能源材料与器件等"
+      }
+    ]
+  },
+  {
+    "id": "school_17",
+    "name": "台州学院",
+    "code": "",
+    "tags": [
+      "公办一梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.1,
+        "interview": 0.3,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_17_g1",
+        "name": "理工类",
+        "score_line": null,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A等第门数与B等第门数之和为5个及以上，其余为D等第及以上。",
+        "last_year_composite_score": 61.4,
+        "admission_count": 110,
+        "preliminary_line": 76,
+        "description": "包含专业：制药工程、材料科学与工程、计算机科学与技术、土木工程、电子信息工程、环境工程、康复治疗学等"
+      },
+      {
+        "id": "school_17_g2",
+        "name": "师范类",
+        "score_line": null,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "政治"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A等第门数与B等第门数之和为6个及以上，其余为D等第及以上。",
+        "last_year_composite_score": 61.2,
+        "admission_count": 80,
+        "preliminary_line": 82,
+        "description": "包含专业：小学教育（师范）、学前教育（师范）、思想政治教育（师范）、数学与应用数学（师范）、科学教育（师范）、英语（师范）等"
+      }
+    ]
+  },
+  {
+    "id": "school_18",
+    "name": "温州大学",
+    "code": "",
+    "tags": [
+      "省重点二梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.15,
+        "interview": 0.25,
+        "gaokao": 0.6
+      },
+      "total_score": 750
+    },
+    "groups": [
+      {
+        "id": "school_18_g1",
+        "name": "非师范类",
+        "score_line": 100,
+        "rules": {
+          "A": 15,
+          "B": 10,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 100
+        },
+        "entry_rule_text": "100.0",
+        "last_year_composite_score": 538.33,
+        "admission_count": 248,
+        "preliminary_line": 115,
+        "description": "包含专业：法学、行政管理、国际经贸规则、电气工程及其自动化、电子信息科学与技术、集成电路设计与集成系统、材料科学与工程、应用化学、能源化学、工业工程、车辆工程、机械工程（卓工超豪示范班）、智能制造工程、建筑学、土木工程、计算机科学与技术、数据科学与大数据技术、人工智能、网络工程（卓工超豪示范班）、应用统计学、信息与计算科学、环境工程、生物技术、城市地下空间工程、生态学等"
+      },
+      {
+        "id": "school_18_g2",
+        "name": "师范类",
+        "score_line": 110,
+        "rules": {
+          "A": 15,
+          "B": 10,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "政治"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 110
+        },
+        "entry_rule_text": "110.0",
+        "last_year_composite_score": 554.64,
+        "admission_count": 112,
+        "preliminary_line": 115,
+        "description": "包含专业：汉语言文学（师范）、思想政治教育（师范）、小学教育（师范）、学前教育（师范）、应用心理学（师范）、数学与应用数学（师范）、物理学（师范）、化学（师范）、英语（师范）、历史学（师范）、生物科学（师范）、教育技术学等"
+      }
+    ]
+  },
+  {
+    "id": "school_19",
+    "name": "温州肯恩大学",
+    "code": "",
+    "tags": [
+      "中外合办"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.1,
+        "interview": 0.3,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_19_g1",
+        "name": "A组",
+        "score_line": 80,
+        "rules": {
+          "A": 15,
+          "B": 10,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 80
+        },
+        "entry_rule_text": "80.0",
+        "last_year_composite_score": 75.98,
+        "admission_count": 98,
+        "preliminary_line": 90,
+        "description": "包含专业：经济学（中外合作办学）、金融学（中外合作办学）（国际金融方向）、国际商务（中外合作办学）、会计学（中外合作办学）（国际会计方向）、市场营销（中外合作办学）（国际方向）、英语（中外合作办学）、心理学（中外合作办学）、传播学（中外合作办学）、建筑学（中外合作办学）等"
+      },
+      {
+        "id": "school_19_g2",
+        "name": "B组",
+        "score_line": 80,
+        "rules": {
+          "A": 15,
+          "B": 10,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 80
+        },
+        "entry_rule_text": "80.0",
+        "last_year_composite_score": 75.55,
+        "admission_count": 52,
+        "preliminary_line": 90,
+        "description": "包含专业：管理科学（中外合作办学）、生物科学（中外合作办学）（细胞与分子方向）、数学与应用数学（中外合作办学）（数据分析方向）、计算机科学与技术（中外合作办学）、化学（中外合作办学）、环境科学（中外合作办学）等"
+      }
+    ]
+  },
+  {
+    "id": "school_20",
+    "name": "温州理工学院",
+    "code": "",
+    "tags": [
+      "公办二梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_20_g1",
+        "name": "A组",
+        "score_line": null,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A等加B等数不少于5个",
+        "last_year_composite_score": 79.36,
+        "admission_count": 30,
+        "preliminary_line": 74,
+        "description": "包含专业：创业管理、工商管理、英语等"
+      },
+      {
+        "id": "school_20_g2",
+        "name": "B组",
+        "score_line": null,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": null
+        },
+        "entry_rule_text": "A等加B等数不少于5个",
+        "last_year_composite_score": 73.12,
+        "admission_count": 30,
+        "preliminary_line": 74,
+        "description": "包含专业：机械类 （机械工程、新能源汽车工程）、电子信息工程、土木工程（智能建造）等"
+      }
+    ]
+  },
+  {
+    "id": "school_21",
+    "name": "温州商学院",
+    "code": "",
+    "tags": [
+      "民办学校"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.15,
+        "interview": 0.25,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_21_g1",
+        "name": "工商管理类",
+        "score_line": 0,
+        "rules": {
+          "A": 12,
+          "B": 10,
+          "C": 8,
+          "D": 7,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 75.85,
+        "admission_count": 20,
+        "preliminary_line": 95,
+        "description": "包含专业：工商管理类等"
+      },
+      {
+        "id": "school_21_g2",
+        "name": "国际经济与贸易",
+        "score_line": 0,
+        "rules": {
+          "A": 12,
+          "B": 10,
+          "C": 8,
+          "D": 7,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 76.09,
+        "admission_count": 10,
+        "preliminary_line": 94,
+        "description": "包含专业：国际经济与贸易等"
+      },
+      {
+        "id": "school_21_g3",
+        "name": "会计学",
+        "score_line": 0,
+        "rules": {
+          "A": 12,
+          "B": 10,
+          "C": 8,
+          "D": 7,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 77.3,
+        "admission_count": 20,
+        "preliminary_line": 96,
+        "description": "包含专业：会计学等"
+      },
+      {
+        "id": "school_21_g4",
+        "name": "会计学（国际班）",
+        "score_line": 0,
+        "rules": {
+          "A": 12,
+          "B": 10,
+          "C": 8,
+          "D": 7,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 74.94,
+        "admission_count": 40,
+        "preliminary_line": 70,
+        "description": "包含专业：会计学（国际班）等"
+      },
+      {
+        "id": "school_21_g5",
+        "name": "计算机类",
+        "score_line": 0,
+        "rules": {
+          "A": 12,
+          "B": 10,
+          "C": 8,
+          "D": 7,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 72.29,
+        "admission_count": 15,
+        "preliminary_line": 94,
+        "description": "包含专业：计算机类等"
+      },
+      {
+        "id": "school_21_g6",
+        "name": "计算机类（国际班）",
+        "score_line": 0,
+        "rules": {
+          "A": 12,
+          "B": 10,
+          "C": 8,
+          "D": 7,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 70.75,
+        "admission_count": 45,
+        "preliminary_line": 73,
+        "description": "包含专业：计算机类（国际班）等"
+      },
+      {
+        "id": "school_21_g7",
+        "name": "金融科技",
+        "score_line": 0,
+        "rules": {
+          "A": 12,
+          "B": 10,
+          "C": 8,
+          "D": 7,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 71.2,
+        "admission_count": 20,
+        "preliminary_line": 86,
+        "description": "包含专业：金融科技等"
+      },
+      {
+        "id": "school_21_g8",
+        "name": "金融学（国际班）",
+        "score_line": 0,
+        "rules": {
+          "A": 12,
+          "B": 10,
+          "C": 8,
+          "D": 7,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 74.74,
+        "admission_count": 40,
+        "preliminary_line": 72,
+        "description": "包含专业：金融学（国际班）等"
+      },
+      {
+        "id": "school_21_g9",
+        "name": "外国语言文学类（国际班）",
+        "score_line": 0,
+        "rules": {
+          "A": 12,
+          "B": 10,
+          "C": 8,
+          "D": 7,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 73.84,
+        "admission_count": 50,
+        "preliminary_line": 80,
+        "description": "包含专业：外国语言文学类（国际班）等"
+      },
+      {
+        "id": "school_21_g10",
+        "name": "新闻传播学类（国际班）",
+        "score_line": 0,
+        "rules": {
+          "A": 12,
+          "B": 10,
+          "C": 8,
+          "D": 7,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 74.29,
+        "admission_count": 40,
+        "preliminary_line": 78,
+        "description": "包含专业：新闻传播学类（国际班）等"
+      }
+    ]
+  },
+  {
+    "id": "school_22",
+    "name": "温州医科大学",
+    "code": "",
+    "tags": [
+      "省重点一梯队",
+      "medical"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_22_g1",
+        "name": "临床医学类",
+        "score_line": 96,
+        "rules": {
+          "A": 10,
+          "B": 9,
+          "C": 7,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 96
+        },
+        "entry_rule_text": "96.0",
+        "last_year_composite_score": 82.749,
+        "admission_count": 115,
+        "preliminary_line": 0,
+        "description": "包含专业：眼视光医学（5+3一体化）、临床医学（5+3一体化）、临床医学（5+3一体化，儿科学方向）、临床医学、眼视光医学、麻醉学、口腔医学、医学影像学、放射医学、精神医学等"
+      },
+      {
+        "id": "school_22_g2",
+        "name": "医学相关类",
+        "score_line": 91,
+        "rules": {
+          "A": 10,
+          "B": 9,
+          "C": 7,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 91
+        },
+        "entry_rule_text": "91.0",
+        "last_year_composite_score": 80.4,
+        "admission_count": 85,
+        "preliminary_line": 0,
+        "description": "包含专业：药学类（含药学、生物制药）、临床药学、医学检验技术、医学影像技术、康复治疗学、生物技术、生物医学工程、生物制药等"
+      }
+    ]
+  },
+  {
+    "id": "school_24",
+    "name": "浙大城市学院",
+    "code": "",
+    "tags": [
+      "公办一梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_24_g1",
+        "name": "工业设计（中外合作办学）",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 74.704,
+        "admission_count": 50,
+        "preliminary_line": 64,
+        "description": "包含专业：工业设计 （中外合作办学）等"
+      },
+      {
+        "id": "school_24_g2",
+        "name": "护理学",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [
+          "化学"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 75.264,
+        "admission_count": 30,
+        "preliminary_line": 78,
+        "description": "包含专业：护理学等"
+      },
+      {
+        "id": "school_24_g3",
+        "name": "会展经济与管理（中外合作办学）",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 80.128,
+        "admission_count": 30,
+        "preliminary_line": 84,
+        "description": "包含专业：会展经济与管理 （中外合作办学）等"
+      },
+      {
+        "id": "school_24_g4",
+        "name": "土木工程",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 74.016,
+        "admission_count": 40,
+        "preliminary_line": 70,
+        "description": "包含专业：土木工程等"
+      },
+      {
+        "id": "school_24_g5",
+        "name": "药学",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 77.056,
+        "admission_count": 40,
+        "preliminary_line": 83,
+        "description": "包含专业：药学等"
+      },
+      {
+        "id": "school_24_g6",
+        "name": "英语",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 82.296,
+        "admission_count": 10,
+        "preliminary_line": 94,
+        "description": "包含专业：英语等"
+      }
+    ]
+  },
+  {
+    "id": "school_25",
+    "name": "浙大宁波理工学院",
+    "code": "",
+    "tags": [
+      "公办一梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_25_g1",
+        "name": "材料科学与工程",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 77.16,
+        "admission_count": 10,
+        "preliminary_line": 81,
+        "description": "包含专业：材料科学与工程等"
+      },
+      {
+        "id": "school_25_g2",
+        "name": "高分子材料与工程",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 75.4,
+        "admission_count": 10,
+        "preliminary_line": 78,
+        "description": "包含专业：高分子材料与工程等"
+      },
+      {
+        "id": "school_25_g3",
+        "name": "工业设计",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 76.84,
+        "admission_count": 8,
+        "preliminary_line": 78,
+        "description": "包含专业：工业设计等"
+      },
+      {
+        "id": "school_25_g4",
+        "name": "国际经济与贸易（中外合作办学）",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 76.24,
+        "admission_count": 8,
+        "preliminary_line": 78,
+        "description": "包含专业：国际经济与贸易（中外合作办学）等"
+      },
+      {
+        "id": "school_25_g5",
+        "name": "化学工程与工艺",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 77.16,
+        "admission_count": 10,
+        "preliminary_line": 76,
+        "description": "包含专业：化学工程与工艺等"
+      },
+      {
+        "id": "school_25_g6",
+        "name": "机械设计制造及其自动化",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 78.84,
+        "admission_count": 8,
+        "preliminary_line": 87,
+        "description": "包含专业：机械设计制造及其自动化等"
+      },
+      {
+        "id": "school_25_g7",
+        "name": "金融学（中外合作办学）",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 76.53,
+        "admission_count": 8,
+        "preliminary_line": 76,
+        "description": "包含专业：金融学（中外合作办学）等"
+      },
+      {
+        "id": "school_25_g8",
+        "name": "土木工程",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 71.44,
+        "admission_count": 8,
+        "preliminary_line": 70,
+        "description": "包含专业：土木工程等"
+      }
+    ]
+  },
+  {
+    "id": "school_26",
+    "name": "浙江财经大学",
+    "code": "",
+    "tags": [
+      "省重点一梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 750
+    },
+    "groups": [
+      {
+        "id": "school_26_g1",
+        "name": "A组",
+        "score_line": 95,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 95
+        },
+        "entry_rule_text": "95.0",
+        "last_year_composite_score": 607.2,
+        "admission_count": 135,
+        "preliminary_line": 126,
+        "description": "包含专业：财政学类（财政学、税收学）、公共管理类（劳动与社会保障、土地资源管理、行政管理、城市管理）、城乡规划、会计学、财务管理、审计学、金融学、投资学、工商管理类（工商管理、人力资源管理、市场营销、供应链管理）、电子商务、经济学、法学、社会工作、外国语言文学类（英语、日语、商务英语）、汉语言文学、新闻传播学类（广告学、网络与新媒体）、国际经济与贸易（含数字贸易方向）等"
+      },
+      {
+        "id": "school_26_g2",
+        "name": "B组",
+        "score_line": 95,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 95
+        },
+        "entry_rule_text": "95.0",
+        "last_year_composite_score": 576,
+        "admission_count": 175,
+        "preliminary_line": 108,
+        "description": "包含专业：金融科技、金融工程、数字经济、工程管理、信息管理与信息系统、计算机类（人工智能、软件工程）、应用统计学、数据科学与大数据技术、经济统计学、金融数学、金融工程（金融科创）等"
+      },
+      {
+        "id": "school_26_g3",
+        "name": "C组",
+        "score_line": 80,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 80
+        },
+        "entry_rule_text": "80.0",
+        "last_year_composite_score": 598.5,
+        "admission_count": 90,
+        "preliminary_line": 108,
+        "description": "包含专业：会计学(中外合作办学)、市场营销(中外合作办学)、金融学(中外合作办学)等"
+      }
+    ]
+  },
+  {
+    "id": "school_27",
+    "name": "浙江工商大学",
+    "code": "",
+    "tags": [
+      "省重点一梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_27_g1",
+        "name": "A类",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 68.76,
+        "admission_count": 60,
+        "preliminary_line": 90,
+        "description": "包含专业：工商管理类、会计学、数字经济、金融工程、保险学、金融学（普惠金融创新班）等"
+      },
+      {
+        "id": "school_27_g2",
+        "name": "B类",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 82.88,
+        "admission_count": 180,
+        "preliminary_line": 94,
+        "description": "包含专业：外国语言文学类、新闻传播学类、公共管理类、旅游管理类、哲学、社会工作、汉语言文学、法语、阿拉伯语、日语、历史学、外国语言文学类、城乡规划等"
+      },
+      {
+        "id": "school_27_g3",
+        "name": "C类",
+        "score_line": 60,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 80.88,
+        "admission_count": 145,
+        "preliminary_line": 88,
+        "description": "包含专业：电子信息类、计算机类、环境科学与工程类、食品科学与工程类、数学与应用数学、给排水科学与工程、生物工程、信息管理与信息系统、电子信息工程（中外合作办学）、通信工程（中外合作办学）等"
+      }
+    ]
+  },
+  {
+    "id": "school_28",
+    "name": "浙江工业大学",
+    "code": "",
+    "tags": [
+      "省重点一梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_28_g1",
+        "name": "A组",
+        "score_line": 7,
+        "rules": {
+          "A": 4,
+          "B": 2,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 7
+        },
+        "entry_rule_text": "7A",
+        "last_year_composite_score": 0,
+        "admission_count": 15,
+        "preliminary_line": 86,
+        "description": "包含专业：健行学院实验班(人文社科)等"
+      },
+      {
+        "id": "school_28_g2",
+        "name": "B组",
+        "score_line": 7,
+        "rules": {
+          "A": 4,
+          "B": 2,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 7
+        },
+        "entry_rule_text": "7A",
+        "last_year_composite_score": 0,
+        "admission_count": 55,
+        "preliminary_line": 88.333,
+        "description": "包含专业：健行学院实验班(理工)等"
+      },
+      {
+        "id": "school_28_g3",
+        "name": "C组",
+        "score_line": 6,
+        "rules": {
+          "A": 4,
+          "B": 2,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 6
+        },
+        "entry_rule_text": "6A",
+        "last_year_composite_score": 0,
+        "admission_count": 180,
+        "preliminary_line": 68.333,
+        "description": "包含专业：环境科学与工程类、材料类、化工与制药类(化学工程类)、化学工程与工艺(卓越工程师)、生物工程类、食品科学与工程类、药学类(“2011计划”创新实验区)等"
+      },
+      {
+        "id": "school_28_g4",
+        "name": "D组",
+        "score_line": 6,
+        "rules": {
+          "A": 4,
+          "B": 2,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 6
+        },
+        "entry_rule_text": "6A",
+        "last_year_composite_score": 0,
+        "admission_count": 60,
+        "preliminary_line": 78,
+        "description": "包含专业：应用心理学、法学、新闻传播学类、汉语言文学、金融学、国际经济与贸易、工商管理类、英语、公共管理类、城乡规划等"
+      },
+      {
+        "id": "school_28_g5",
+        "name": "E组",
+        "score_line": 6,
+        "rules": {
+          "A": 4,
+          "B": 2,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 6
+        },
+        "entry_rule_text": "6A",
+        "last_year_composite_score": 0,
+        "admission_count": 100,
+        "preliminary_line": 76,
+        "description": "包含专业：计算机类、数据科学与大数据技术、数学类、管理科学与工程类、土木类、物理学类(物理与光电信息类)等"
+      },
+      {
+        "id": "school_28_g6",
+        "name": "F组",
+        "score_line": 6,
+        "rules": {
+          "A": 4,
+          "B": 2,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 6
+        },
+        "entry_rule_text": "6A",
+        "last_year_composite_score": 0,
+        "admission_count": 90,
+        "preliminary_line": 68.333,
+        "description": "包含专业：机械类、机械工程(卓越工程师)、电气类、电子信息类、机器人工程、工业设计、安全工程、能源环境与工程等"
+      }
+    ]
+  },
+  {
+    "id": "school_29",
+    "name": "浙江海洋大学",
+    "code": "",
+    "tags": [
+      "省重点二梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.15,
+        "interview": 0.25,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_29_g1",
+        "name": "二类",
+        "score_line": 80,
+        "rules": {
+          "A": 15,
+          "B": 10,
+          "C": 6,
+          "D": 1,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 80
+        },
+        "entry_rule_text": "80.0",
+        "last_year_composite_score": 74.55,
+        "admission_count": 60,
+        "preliminary_line": 98,
+        "description": "包含专业：数学与应用数学(师范)、物理学(师范)、船舶与海洋工程、水产养殖学、海洋科学等"
+      },
+      {
+        "id": "school_29_g2",
+        "name": "一类",
+        "score_line": 90,
+        "rules": {
+          "A": 15,
+          "B": 10,
+          "C": 6,
+          "D": 1,
+          "E": 0
+        },
+        "required_subjects": [
+          "历史"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 90
+        },
+        "entry_rule_text": "90.0",
+        "last_year_composite_score": 77.055,
+        "admission_count": 50,
+        "preliminary_line": 111,
+        "description": "包含专业：英语(师范)、小学教育(师范)、历史学(师范)等"
+      }
+    ]
+  },
+  {
+    "id": "school_30",
+    "name": "浙江科技大学",
+    "code": "",
+    "tags": [
+      "公办一梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_30_g1",
+        "name": "科技创新班",
+        "score_line": 50,
+        "rules": {
+          "A": 15,
+          "B": 10,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 50
+        },
+        "entry_rule_text": "50.0",
+        "last_year_composite_score": 77.56,
+        "admission_count": 65,
+        "preliminary_line": 120,
+        "description": "包含专业：车辆工程、电气工程及其自动化、计算机科学与技术等"
+      },
+      {
+        "id": "school_30_g2",
+        "name": "科技创新班（国际）",
+        "score_line": 50,
+        "rules": {
+          "A": 15,
+          "B": 10,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 50
+        },
+        "entry_rule_text": "50.0",
+        "last_year_composite_score": 72.29,
+        "admission_count": 125,
+        "preliminary_line": 75,
+        "description": "包含专业：计算机类 （中德联合培养）、土木类（中法联合培养）、机器人工程 （中澳联合培养）、电气类(中德合作办学)、数据科学与大数据技术（中法合作办学）等"
+      },
+      {
+        "id": "school_30_g3",
+        "name": "商科类",
+        "score_line": 50,
+        "rules": {
+          "A": 15,
+          "B": 10,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 50
+        },
+        "entry_rule_text": "50.0",
+        "last_year_composite_score": 75.57,
+        "admission_count": 50,
+        "preliminary_line": 100,
+        "description": "包含专业：国际商务 （中澳联合培养）、经济学（中美合作办学）等"
+      }
+    ]
+  },
+  {
+    "id": "school_31",
+    "name": "浙江理工大学",
+    "code": "",
+    "tags": [
+      "省重点一梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.2,
+        "interview": 0.2,
+        "gaokao": 0.6
+      },
+      "total_score": 750
+    },
+    "groups": [
+      {
+        "id": "school_31_g1",
+        "name": "经管人文类",
+        "score_line": 0,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 615.8,
+        "admission_count": 70,
+        "preliminary_line": 136,
+        "description": "包含专业：经济与贸易类、工商管理类、外国语言文学类、新闻传播学类、行政管理等"
+      },
+      {
+        "id": "school_31_g2",
+        "name": "理工类二",
+        "score_line": 0,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 624.8,
+        "admission_count": 155,
+        "preliminary_line": 134,
+        "description": "包含专业：数学类、建筑类、应用物理学、机械类、自动化、土木类、工业设计等"
+      },
+      {
+        "id": "school_31_g3",
+        "name": "理工类一",
+        "score_line": 0,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 615.4,
+        "admission_count": 175,
+        "preliminary_line": 117,
+        "description": "包含专业：纺织类、轻化工程、服装设计与工程、丝绸设计与工程、生物科学类、材料类、应用化学等"
+      }
+    ]
+  },
+  {
+    "id": "school_32",
+    "name": "浙江农林大学",
+    "code": "",
+    "tags": [
+      "省重点二梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.15,
+        "interview": 0.25,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_32_g1",
+        "name": "A类",
+        "score_line": 90,
+        "rules": {
+          "A": 15,
+          "B": 10,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 90
+        },
+        "entry_rule_text": "90.0",
+        "last_year_composite_score": 78.32,
+        "admission_count": 290,
+        "preliminary_line": 110,
+        "description": "包含专业：农学、植物保护、林学、生物技术、农业资源与环境、环境科学与工程、测绘工程、木材科学与工程、家具设计与工程、应用化学、高分子材料与工程、土木工程、动物科学、工业设计、应用统计学、数据科学与大数据技术、智能科学与技术、物联网工程、机械设计制造及其自动化、电子信息工程、食品科学与工程、食品质量与安全、中药学、生物制药、园艺、茶学、园林、金融工程、生态学等"
+      },
+      {
+        "id": "school_32_g2",
+        "name": "B类",
+        "score_line": 90,
+        "rules": {
+          "A": 15,
+          "B": 10,
+          "C": 5,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "地理"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 90
+        },
+        "entry_rule_text": "90.0",
+        "last_year_composite_score": 80.3,
+        "admission_count": 70,
+        "preliminary_line": 115,
+        "description": "包含专业：地理信息科学、风景园林、城乡规划、建筑学、农林经济管理、国际经济与贸易、工商管理、英语、文化产业管理（茶文化）等"
+      }
+    ]
+  },
+  {
+    "id": "school_33",
+    "name": "浙江师范大学",
+    "code": "",
+    "tags": [
+      "省重点一梯队",
+      "normal"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.15,
+        "interview": 0.25,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_33_g1",
+        "name": "地理复硕",
+        "score_line": 98,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [
+          "地理"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 98
+        },
+        "entry_rule_text": "98.0",
+        "last_year_composite_score": 85.75,
+        "admission_count": 40,
+        "preliminary_line": 96,
+        "description": "包含专业：地理科学(复硕)等"
+      },
+      {
+        "id": "school_33_g2",
+        "name": "汉语言文学",
+        "score_line": 86,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 86
+        },
+        "entry_rule_text": "86.0",
+        "last_year_composite_score": 82.38,
+        "admission_count": 40,
+        "preliminary_line": 94,
+        "description": "包含专业：汉语言文学(师范)等"
+      },
+      {
+        "id": "school_33_g3",
+        "name": "化学",
+        "score_line": 86,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 86
+        },
+        "entry_rule_text": "86.0",
+        "last_year_composite_score": 79.23,
+        "admission_count": 35,
+        "preliminary_line": 90,
+        "description": "包含专业：化学(师范)等"
+      },
+      {
+        "id": "school_33_g4",
+        "name": "化学复硕",
+        "score_line": 88,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 88
+        },
+        "entry_rule_text": "88.0",
+        "last_year_composite_score": 84.31,
+        "admission_count": 40,
+        "preliminary_line": 98,
+        "description": "包含专业：化学(复硕)等"
+      },
+      {
+        "id": "school_33_g5",
+        "name": "生物科学",
+        "score_line": 76,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 76
+        },
+        "entry_rule_text": "76.0",
+        "last_year_composite_score": 77.86,
+        "admission_count": 35,
+        "preliminary_line": 82,
+        "description": "包含专业：生物科学(师范)等"
+      },
+      {
+        "id": "school_33_g6",
+        "name": "数学与应用数学（师范）",
+        "score_line": 86,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 86
+        },
+        "entry_rule_text": "86.0",
+        "last_year_composite_score": 82.02,
+        "admission_count": 25,
+        "preliminary_line": 94,
+        "description": "包含专业：数学与应用数学（师范）等"
+      },
+      {
+        "id": "school_33_g7",
+        "name": "政治",
+        "score_line": 86,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [
+          "政治"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 86
+        },
+        "entry_rule_text": "86.0",
+        "last_year_composite_score": 83.84,
+        "admission_count": 30,
+        "preliminary_line": 92,
+        "description": "包含专业：思想政治教育(师范)等"
+      },
+      {
+        "id": "school_33_g8",
+        "name": "特殊教育",
+        "score_line": 76,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 76
+        },
+        "entry_rule_text": "76.0",
+        "last_year_composite_score": 80.76,
+        "admission_count": 30,
+        "preliminary_line": 80,
+        "description": "包含专业：特殊教育(师范)等"
+      },
+      {
+        "id": "school_33_g9",
+        "name": "物理",
+        "score_line": 86,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 86
+        },
+        "entry_rule_text": "86.0",
+        "last_year_composite_score": 78.59,
+        "admission_count": 20,
+        "preliminary_line": 90,
+        "description": "包含专业：物理学(师范)等"
+      },
+      {
+        "id": "school_33_g10",
+        "name": "小学教育",
+        "score_line": 86,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 86
+        },
+        "entry_rule_text": "86.0",
+        "last_year_composite_score": 79.39,
+        "admission_count": 40,
+        "preliminary_line": 90,
+        "description": "包含专业：小学教育(师范)等"
+      },
+      {
+        "id": "school_33_g11",
+        "name": "学前教育",
+        "score_line": 76,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 76
+        },
+        "entry_rule_text": "76.0",
+        "last_year_composite_score": 77.72,
+        "admission_count": 30,
+        "preliminary_line": 82,
+        "description": "包含专业：学前教育(师范)等"
+      },
+      {
+        "id": "school_33_g12",
+        "name": "英语",
+        "score_line": 86,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 2,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 86
+        },
+        "entry_rule_text": "86.0",
+        "last_year_composite_score": 79.39,
+        "admission_count": 26,
+        "preliminary_line": 92,
+        "description": "包含专业：英语(师范)等"
+      }
+    ]
+  },
+  {
+    "id": "school_34",
+    "name": "浙江水利水电学院",
+    "code": "",
+    "tags": [
+      "公办一梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.15,
+        "interview": 0.25,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_34_g1",
+        "name": "综合组",
+        "score_line": 0,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 0
+        },
+        "entry_rule_text": "0.0",
+        "last_year_composite_score": 0,
+        "admission_count": 100,
+        "preliminary_line": 66,
+        "description": "包含专业：水利水电工程、港口航道与海岸工程、环境生态工程、测绘工程、道路桥梁与渡河工程、给排水科学与工程、遥感科学与技术、新能源科学与工程、土木工程、材料成型及控制工程等"
+      }
+    ]
+  },
+  {
+    "id": "school_35",
+    "name": "浙江外国语学院",
+    "code": "",
+    "tags": [
+      "公办二梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.1,
+        "interview": 0.3,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_35_g1",
+        "name": "阿拉伯语",
+        "score_line": 15,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 15
+        },
+        "entry_rule_text": "15.0",
+        "last_year_composite_score": 83,
+        "admission_count": 10,
+        "preliminary_line": 0,
+        "description": "包含专业：阿拉伯语等"
+      },
+      {
+        "id": "school_35_g2",
+        "name": "俄语",
+        "score_line": 15,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 15
+        },
+        "entry_rule_text": "15.0",
+        "last_year_composite_score": 83.3,
+        "admission_count": 10,
+        "preliminary_line": 0,
+        "description": "包含专业：俄语等"
+      },
+      {
+        "id": "school_35_g3",
+        "name": "汉语言文学（师范）",
+        "score_line": 15,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "历史"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 15
+        },
+        "entry_rule_text": "15.0",
+        "last_year_composite_score": 82.2,
+        "admission_count": 10,
+        "preliminary_line": 0,
+        "description": "包含专业：汉语言文学（师范）等"
+      },
+      {
+        "id": "school_35_g4",
+        "name": "葡萄牙语",
+        "score_line": 15,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 15
+        },
+        "entry_rule_text": "15.0",
+        "last_year_composite_score": 86.3,
+        "admission_count": 10,
+        "preliminary_line": 0,
+        "description": "包含专业：葡萄牙语等"
+      },
+      {
+        "id": "school_35_g5",
+        "name": "日语",
+        "score_line": 15,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 15
+        },
+        "entry_rule_text": "15.0",
+        "last_year_composite_score": 82,
+        "admission_count": 5,
+        "preliminary_line": 0,
+        "description": "包含专业：日语等"
+      },
+      {
+        "id": "school_35_g6",
+        "name": "西班牙语（中外合作办学）（旅游方向）",
+        "score_line": 15,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 15
+        },
+        "entry_rule_text": "15.0",
+        "last_year_composite_score": 86,
+        "admission_count": 20,
+        "preliminary_line": 0,
+        "description": "包含专业：西班牙语（中外合作办学）（旅游方向）等"
+      },
+      {
+        "id": "school_35_g7",
+        "name": "小学教育（师范）",
+        "score_line": 15,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 15
+        },
+        "entry_rule_text": "15.0",
+        "last_year_composite_score": 86,
+        "admission_count": 20,
+        "preliminary_line": 0,
+        "description": "包含专业：小学教育（师范）等"
+      },
+      {
+        "id": "school_35_g8",
+        "name": "意大利语",
+        "score_line": 15,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 15
+        },
+        "entry_rule_text": "15.0",
+        "last_year_composite_score": 88.1,
+        "admission_count": 5,
+        "preliminary_line": 0,
+        "description": "包含专业：意大利语等"
+      },
+      {
+        "id": "school_35_g9",
+        "name": "意大利语（中外合作办学）",
+        "score_line": 15,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 15
+        },
+        "entry_rule_text": "15.0",
+        "last_year_composite_score": 69,
+        "admission_count": 20,
+        "preliminary_line": 0,
+        "description": "包含专业：意大利语（中外合作办学）等"
+      },
+      {
+        "id": "school_35_g10",
+        "name": "朝鲜语",
+        "score_line": 15,
+        "rules": {
+          "A": 15,
+          "B": 9,
+          "C": 3,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 15
+        },
+        "entry_rule_text": "15.0",
+        "last_year_composite_score": 83.3,
+        "admission_count": 5,
+        "preliminary_line": 0,
+        "description": "包含专业：朝鲜语等"
+      }
+    ]
+  },
+  {
+    "id": "school_36",
+    "name": "浙江万里学院",
+    "code": "",
+    "tags": [
+      "公办二梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.15,
+        "interview": 0.25,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_36_g1",
+        "name": "创业管理",
+        "score_line": 70,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 70
+        },
+        "entry_rule_text": "70.0",
+        "last_year_composite_score": 0,
+        "admission_count": 0,
+        "preliminary_line": 90,
+        "description": ""
+      },
+      {
+        "id": "school_36_g2",
+        "name": "电子信息工程",
+        "score_line": 65,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 65
+        },
+        "entry_rule_text": "65.0",
+        "last_year_composite_score": 74.21,
+        "admission_count": 10,
+        "preliminary_line": 87,
+        "description": "包含专业：电子信息工程等"
+      },
+      {
+        "id": "school_36_g3",
+        "name": "供应链管理",
+        "score_line": 60,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 79.83,
+        "admission_count": 40,
+        "preliminary_line": 85,
+        "description": "包含专业：供应链管理等"
+      },
+      {
+        "id": "school_36_g4",
+        "name": "广告学（中德2+2双学位班）",
+        "score_line": 60,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 78.3,
+        "admission_count": 20,
+        "preliminary_line": 78,
+        "description": "包含专业：广告学（中德2+2双学位班）等"
+      },
+      {
+        "id": "school_36_g5",
+        "name": "广告学（中外合作办学）",
+        "score_line": 60,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 77.31,
+        "admission_count": 40,
+        "preliminary_line": 74,
+        "description": "包含专业：广告学（中外合作办学）等"
+      },
+      {
+        "id": "school_36_g6",
+        "name": "国际经济与贸易（中外2+2双学位班）",
+        "score_line": 60,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 81.13,
+        "admission_count": 10,
+        "preliminary_line": 88,
+        "description": "包含专业：国际经济与贸易（中外2+2双学位班）等"
+      },
+      {
+        "id": "school_36_g7",
+        "name": "环境科学与工程类",
+        "score_line": 65,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 65
+        },
+        "entry_rule_text": "65.0",
+        "last_year_composite_score": 73.11,
+        "admission_count": 20,
+        "preliminary_line": 76,
+        "description": "包含专业：环境科学与工程类等"
+      },
+      {
+        "id": "school_36_g8",
+        "name": "会展经济与管理（中德2+2双学位班）",
+        "score_line": 60,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 79.485,
+        "admission_count": 10,
+        "preliminary_line": 81,
+        "description": "包含专业：会展经济与管理（中德2+2双学位班）等"
+      },
+      {
+        "id": "school_36_g9",
+        "name": "机械电子工程",
+        "score_line": 70,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 70
+        },
+        "entry_rule_text": "70.0",
+        "last_year_composite_score": 75.1,
+        "admission_count": 10,
+        "preliminary_line": 90,
+        "description": "包含专业：机械电子工程等"
+      },
+      {
+        "id": "school_36_g10",
+        "name": "金融工程",
+        "score_line": 65,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 65
+        },
+        "entry_rule_text": "65.0",
+        "last_year_composite_score": 75.89,
+        "admission_count": 10,
+        "preliminary_line": 84,
+        "description": "包含专业：金融工程等"
+      },
+      {
+        "id": "school_36_g11",
+        "name": "区块链工程",
+        "score_line": 65,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 65
+        },
+        "entry_rule_text": "65.0",
+        "last_year_composite_score": 77.55,
+        "admission_count": 10,
+        "preliminary_line": 84,
+        "description": "包含专业：区块链工程等"
+      },
+      {
+        "id": "school_36_g12",
+        "name": "日语",
+        "score_line": 70,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 70
+        },
+        "entry_rule_text": "70.0",
+        "last_year_composite_score": 77.97,
+        "admission_count": 20,
+        "preliminary_line": 84,
+        "description": "包含专业：日语等"
+      },
+      {
+        "id": "school_36_g13",
+        "name": "生物工程类",
+        "score_line": 65,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 65
+        },
+        "entry_rule_text": "65.0",
+        "last_year_composite_score": 71.59,
+        "admission_count": 10,
+        "preliminary_line": 75,
+        "description": "包含专业：生物工程类等"
+      },
+      {
+        "id": "school_36_g14",
+        "name": "生物技术",
+        "score_line": 65,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 65
+        },
+        "entry_rule_text": "65.0",
+        "last_year_composite_score": 70.53,
+        "admission_count": 10,
+        "preliminary_line": 73,
+        "description": "包含专业：生物技术等"
+      },
+      {
+        "id": "school_36_g15",
+        "name": "食品科学与工程类",
+        "score_line": 65,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 65
+        },
+        "entry_rule_text": "65.0",
+        "last_year_composite_score": 72.41,
+        "admission_count": 20,
+        "preliminary_line": 81,
+        "description": "包含专业：食品科学与工程类等"
+      },
+      {
+        "id": "school_36_g16",
+        "name": "食品营养与健康",
+        "score_line": 65,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 65
+        },
+        "entry_rule_text": "65.0",
+        "last_year_composite_score": 71.65,
+        "admission_count": 5,
+        "preliminary_line": 72,
+        "description": "包含专业：食品营养与健康等"
+      },
+      {
+        "id": "school_36_g17",
+        "name": "视觉传达设计（中德2+2双学位班）",
+        "score_line": 60,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 77.805,
+        "admission_count": 10,
+        "preliminary_line": 76,
+        "description": "包含专业：视觉传达设计（中德2+2双学位班）等"
+      },
+      {
+        "id": "school_36_g18",
+        "name": "视觉传达设计（中外合作办学）",
+        "score_line": 60,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 75.97,
+        "admission_count": 30,
+        "preliminary_line": 73,
+        "description": "包含专业：视觉传达设计（中外合作办学）等"
+      },
+      {
+        "id": "school_36_g19",
+        "name": "网络空间安全",
+        "score_line": 65,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 65
+        },
+        "entry_rule_text": "65.0",
+        "last_year_composite_score": 74.67,
+        "admission_count": 10,
+        "preliminary_line": 87,
+        "description": "包含专业：网络空间安全等"
+      },
+      {
+        "id": "school_36_g20",
+        "name": "物流管理",
+        "score_line": 70,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 70
+        },
+        "entry_rule_text": "70.0",
+        "last_year_composite_score": 78.41,
+        "admission_count": 20,
+        "preliminary_line": 93,
+        "description": "包含专业：物流管理、物流管理等"
+      },
+      {
+        "id": "school_36_g21",
+        "name": "艺术与科技（中德2+2双学位班）",
+        "score_line": 60,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 60
+        },
+        "entry_rule_text": "60.0",
+        "last_year_composite_score": 76.42,
+        "admission_count": 20,
+        "preliminary_line": 64,
+        "description": "包含专业：艺术与科技（中德2+2双学位班）等"
+      },
+      {
+        "id": "school_36_g22",
+        "name": "智能影像工程",
+        "score_line": 65,
+        "rules": {
+          "A": 12,
+          "B": 9,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 65
+        },
+        "entry_rule_text": "65.0",
+        "last_year_composite_score": 73.15,
+        "admission_count": 5,
+        "preliminary_line": 82,
+        "description": "包含专业：智能影像工程等"
+      }
+    ]
+  },
+  {
+    "id": "school_37",
+    "name": "浙江越秀外国语学院",
+    "code": "",
+    "tags": [
+      "民办学校"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.15,
+        "interview": 0.15,
+        "gaokao": 0.7
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_37_g1",
+        "name": "阿拉伯语",
+        "score_line": 8,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 8
+        },
+        "entry_rule_text": "8.0",
+        "last_year_composite_score": 71.3,
+        "admission_count": 8,
+        "preliminary_line": 64,
+        "description": "包含专业：阿拉伯语等"
+      },
+      {
+        "id": "school_37_g2",
+        "name": "传播学",
+        "score_line": 8,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 8
+        },
+        "entry_rule_text": "8.0",
+        "last_year_composite_score": 72.11,
+        "admission_count": 4,
+        "preliminary_line": 72,
+        "description": "包含专业：传播学等"
+      },
+      {
+        "id": "school_37_g3",
+        "name": "大数据管理与应用（中外合作办学）",
+        "score_line": 8,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 8
+        },
+        "entry_rule_text": "8.0",
+        "last_year_composite_score": 63.57,
+        "admission_count": 20,
+        "preliminary_line": 52,
+        "description": "包含专业：大数据管理与应用（中外合作办学）等"
+      },
+      {
+        "id": "school_37_g4",
+        "name": "国际商务",
+        "score_line": 8,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 8
+        },
+        "entry_rule_text": "8.0",
+        "last_year_composite_score": 72.34,
+        "admission_count": 16,
+        "preliminary_line": 70,
+        "description": "包含专业：国际商务等"
+      },
+      {
+        "id": "school_37_g5",
+        "name": "酒店管理",
+        "score_line": 8,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 8
+        },
+        "entry_rule_text": "8.0",
+        "last_year_composite_score": 70.38,
+        "admission_count": 60,
+        "preliminary_line": 62,
+        "description": "包含专业：酒店管理等"
+      },
+      {
+        "id": "school_37_g6",
+        "name": "日语",
+        "score_line": 8,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 8
+        },
+        "entry_rule_text": "8.0",
+        "last_year_composite_score": 71.16,
+        "admission_count": 8,
+        "preliminary_line": 70,
+        "description": "包含专业：日语等"
+      },
+      {
+        "id": "school_37_g7",
+        "name": "新闻学",
+        "score_line": 8,
+        "rules": {
+          "A": 10,
+          "B": 8,
+          "C": 6,
+          "D": 4,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 8
+        },
+        "entry_rule_text": "8.0",
+        "last_year_composite_score": 74.38,
+        "admission_count": 4,
+        "preliminary_line": 72,
+        "description": "包含专业：新闻学等"
+      }
+    ]
+  },
+  {
+    "id": "school_38",
+    "name": "浙江中医药大学",
+    "code": "",
+    "tags": [
+      "省重点二梯队",
+      "medical"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.15,
+        "interview": 0.25,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_38_g1",
+        "name": "管理学类",
+        "score_line": 64,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 64
+        },
+        "entry_rule_text": "64.0",
+        "last_year_composite_score": 76.055,
+        "admission_count": 20,
+        "preliminary_line": 79,
+        "description": "包含专业：公共事业管理、健康服务与管理等"
+      },
+      {
+        "id": "school_38_g2",
+        "name": "护理学类",
+        "score_line": 64,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "化学"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 64
+        },
+        "entry_rule_text": "64.0",
+        "last_year_composite_score": 72.68,
+        "admission_count": 40,
+        "preliminary_line": 67,
+        "description": "包含专业：护理学等"
+      },
+      {
+        "id": "school_38_g3",
+        "name": "临床医学类",
+        "score_line": 82,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 82
+        },
+        "entry_rule_text": "82.0",
+        "last_year_composite_score": 79.06,
+        "admission_count": 55,
+        "preliminary_line": 85,
+        "description": "包含专业：临床医学、儿科学等"
+      },
+      {
+        "id": "school_38_g4",
+        "name": "中药学类",
+        "score_line": 70,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 70
+        },
+        "entry_rule_text": "70.0",
+        "last_year_composite_score": 78.375,
+        "admission_count": 30,
+        "preliminary_line": 79,
+        "description": "包含专业：中药学等"
+      },
+      {
+        "id": "school_38_g5",
+        "name": "中医学类",
+        "score_line": 82,
+        "rules": {
+          "A": 10,
+          "B": 7,
+          "C": 4,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "化学"
+        ],
+        "required_subjects_mode": "or",
+        "entry_rule": {
+          "kind": "score",
+          "score": 82
+        },
+        "entry_rule_text": "82.0",
+        "last_year_composite_score": 80.14,
+        "admission_count": 35,
+        "preliminary_line": 91,
+        "description": "包含专业：中医学（5+3一体化）、中医学等"
+      }
+    ]
+  },
+  {
+    "id": "school_39",
+    "name": "中国计量大学",
+    "code": "",
+    "tags": [
+      "省重点二梯队"
+    ],
+    "calcConfig": {
+      "formula": "zhejiang_common",
+      "weights": {
+        "academic": 0.15,
+        "interview": 0.25,
+        "gaokao": 0.6
+      },
+      "total_score": 100
+    },
+    "groups": [
+      {
+        "id": "school_39_g1",
+        "name": "综合组",
+        "score_line": 110,
+        "rules": {
+          "A": 20,
+          "B": 10,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "required_subjects": [
+          "物理",
+          "化学"
+        ],
+        "required_subjects_mode": "and",
+        "entry_rule": {
+          "kind": "score",
+          "score": 110
+        },
+        "entry_rule_text": "110.0",
+        "last_year_composite_score": 81.66,
+        "admission_count": 280,
+        "preliminary_line": 140,
+        "description": "包含专业：自动化、电气工程及其自动化、机械设计制造及其自动化、机械电子工程、测控技术与仪器、智能感知工程、电子信息工程、通信工程、计算机科学与技术、人工智能、光电信息科学与工程、电子科学与技术、功能材料、材料科学与工程、应用化学、质量管理工程、工业工程、安全工程、环境工程、信息管理与信息系统、数学与应用数学、应用物理学、声学、食品质量与安全、生物工程、工业设计、标准化工程、能源与动力工程等"
+      }
+    ]
+  }
+]
