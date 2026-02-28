@@ -58,6 +58,24 @@ const displayResults = computed(() => {
   return list
 })
 
+// 按学校分组的展示结果
+const groupedResults = computed(() => {
+  if (displayResults.value.length === 0) return []
+  
+  const groupsRecord = {}
+  displayResults.value.forEach(item => {
+    if (!groupsRecord[item.school_name]) {
+      groupsRecord[item.school_name] = {
+        school_name: item.school_name,
+        tags: item.tags || [],
+        items: []
+      }
+    }
+    groupsRecord[item.school_name].items.push(item)
+  })
+  return Object.values(groupsRecord)
+})
+
 async function handleSubmit() {
   await formRef.value.validate()
 
@@ -245,16 +263,35 @@ function handleDownloadExcel() {
         </el-button>
       </div>
 
-      <!-- 结果列表 -->
-      <transition-group name="list" tag="div" class="results-list">
-        <ResultCard
-          v-for="item in displayResults"
-          :key="item.group_id"
-          :result="item"
-        />
+      <!-- 结果列表 (按学校合并展示) -->
+      <transition-group name="list" tag="div" class="results-list" v-if="groupedResults.length > 0">
+        <el-card
+          v-for="school in groupedResults"
+          :key="school.school_name"
+          class="school-group-card"
+          shadow="never"
+        >
+          <template #header>
+            <div class="school-header">
+              <span class="school-name">{{ school.school_name }}</span>
+              <div class="school-tags" v-if="school.tags.length">
+                <el-tag v-for="tag in school.tags" :key="tag" size="small" type="info" effect="plain">
+                  {{ tag }}
+                </el-tag>
+              </div>
+            </div>
+          </template>
+          <div class="group-items">
+            <ResultCard
+              v-for="item in school.items"
+              :key="item.group_id"
+              :result="item"
+            />
+          </div>
+        </el-card>
       </transition-group>
 
-      <el-empty v-if="displayResults.length === 0" description="暂无匹配结果" />
+      <el-empty v-if="groupedResults.length === 0" description="暂无匹配结果" />
     </template>
   </div>
 </template>
@@ -322,6 +359,49 @@ function handleDownloadExcel() {
 }
 
 .results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.school-group-card {
+  border-radius: 12px;
+  border: 1px solid var(--el-border-color-light);
+  background: var(--bg-color); /* 如果需要和全局背景略有区分即可，默认白也可 */
+}
+
+/* 覆盖 el-card 的 header padding 以紧凑显示 */
+:deep(.school-group-card > .el-card__header) {
+  padding: 12px 20px;
+  background-color: #fcfcfc;
+  border-bottom: 1px solid var(--el-border-color-lighter);
+}
+
+:deep(.school-group-card > .el-card__body) {
+  padding: 16px;
+  background-color: #f5f7fa; /* 使得内部的 ResultCard 有一点层级感 */
+}
+
+.school-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.school-header .school-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.school-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.group-items {
   display: flex;
   flex-direction: column;
   gap: 12px;

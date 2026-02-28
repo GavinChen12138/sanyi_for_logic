@@ -55,16 +55,10 @@ const lastYearDisplay = computed(() => {
     <div class="card-top">
       <div class="card-title-row">
         <div class="card-title">
-          <span class="school-name">{{ result.school_name }}</span>
-          <span class="group-name">· {{ result.group_name }}</span>
+          <span class="group-name">{{ result.group_name }}</span>
         </div>
         <el-tag :type="statusType" size="default" effect="dark" round>
           {{ result.status }}
-        </el-tag>
-      </div>
-      <div class="tags-row" v-if="result.tags?.length">
-        <el-tag v-for="tag in result.tags" :key="tag" size="small" type="info" effect="plain">
-          {{ tag }}
         </el-tag>
       </div>
     </div>
@@ -175,19 +169,9 @@ const lastYearDisplay = computed(() => {
   font-weight: 600;
 }
 
-.school-name {
-  color: var(--text-primary);
-}
-
 .group-name {
-  color: var(--text-secondary);
-  font-weight: 400;
-}
-
-.tags-row {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+  color: var(--text-primary);
+  font-size: 15px;
 }
 
 .dimension {
