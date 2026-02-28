@@ -170,7 +170,8 @@ function handleDownloadExcel() {
         <!-- 高考成绩（已移除） -->
 
         <!-- 选考科目 -->
-        <el-form-item label="选考科目（6选3）" prop="selectedSubjects">
+        <el-divider content-position="left">选考科目</el-divider>
+        <el-form-item label="7选3" prop="selectedSubjects">
           <el-checkbox-group v-model="form.selectedSubjects" :max="3">
             <el-checkbox
               v-for="subject in SUBJECT_OPTIONS"
