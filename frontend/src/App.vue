@@ -27,12 +27,24 @@ const roleLabel = computed(() => {
 const menuItems = computed(() => {
   const items = []
   if (auth.isLoggedIn) {
-    items.push({ path: '/match', label: '成绩筛查', icon: 'icon-search' })
+    items.push({ type: 'item', path: '/match', label: '成绩筛查', icon: 'icon-search' })
+    
+    const manageChildren = []
     if (auth.isAdmin) {
-      items.push({ path: '/admin/users', label: '账号管理', icon: 'icon-user' })
+      manageChildren.push({ path: '/admin/users', label: '账号管理', icon: 'icon-user' })
     }
     if (auth.isSuperAdmin) {
-      items.push({ path: '/super/data', label: '数据管理', icon: 'icon-bar-chart' })
+      manageChildren.push({ path: '/super/data', label: '数据管理', icon: 'icon-bar-chart' })
+    }
+    
+    if (manageChildren.length > 0) {
+      items.push({
+        type: 'submenu',
+        key: 'manage',
+        label: '管理页面',
+        icon: 'icon-settings',
+        children: manageChildren
+      })
     }
   }
   return items
@@ -67,14 +79,25 @@ function handleLogout() {
       <!-- 菜单 -->
       <a-menu
         :selected-keys="[activeRoute]"
+        :auto-open-selected="true"
         :collapsed="collapsed"
         class="sidebar-menu"
         @menu-item-click="(key) => router.push(key)"
       >
-        <a-menu-item v-for="item in menuItems" :key="item.path">
-          <template #icon><component :is="item.icon" /></template>
-          {{ item.label }}
-        </a-menu-item>
+        <template v-for="item in menuItems" :key="item.path || item.key">
+          <a-menu-item v-if="item.type === 'item'" :key="item.path">
+            <template #icon><component :is="item.icon" /></template>
+            {{ item.label }}
+          </a-menu-item>
+          <a-sub-menu v-else-if="item.type === 'submenu'" :key="item.key">
+            <template #icon><component :is="item.icon" /></template>
+            <template #title>{{ item.label }}</template>
+            <a-menu-item v-for="child in item.children" :key="child.path">
+              <template #icon><component :is="child.icon" /></template>
+              {{ child.label }}
+            </a-menu-item>
+          </a-sub-menu>
+        </template>
       </a-menu>
 
       <!-- 底部：用户 + 折叠按钮 -->
