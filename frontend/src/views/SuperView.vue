@@ -3,7 +3,7 @@
  * SuperView.vue — 高校数据管理页面（仅 super_admin）
  */
 import { ref, reactive, onMounted } from 'vue'
-import { ElMessage, ElMessageBox } from 'element-plus'
+import { Message, Modal } from '@arco-design/web-vue'
 import { getVersions, uploadSchools, rollbackVersion, getSchoolsList, getGroupDetail, editGroup } from '@/api/super'
 import { GRADE_OPTIONS } from '@/constants'
 
@@ -18,7 +18,7 @@ async function fetchVersions() {
   try {
     versions.value = await getVersions()
   } catch (err) {
-    ElMessage.error(err.message || '获取版本列表失败')
+    Message.error(err.message || '获取版本列表失败')
   } finally {
     versionsLoading.value = false
   }
@@ -32,7 +32,7 @@ const uploading = ref(false)
 
 async function handleUpload() {
   if (!uploadFileList.value.length) {
-    ElMessage.warning('请选择 JSON 文件')
+    Message.warning('请选择 JSON 文件')
     return
   }
   uploading.value = true
@@ -41,13 +41,13 @@ async function handleUpload() {
     formData.append('file', uploadFileList.value[0].raw)
     formData.append('note', uploadNote.value)
     const result = await uploadSchools(formData)
-    ElMessage.success('上传成功')
+    Message.success('上传成功')
     uploadDialogVisible.value = false
     uploadNote.value = ''
     uploadFileList.value = []
     await fetchVersions()
   } catch (err) {
-    ElMessage.error(err.message || '上传失败')
+    Message.error(err.message || '上传失败')
   } finally {
     uploading.value = false
   }
@@ -56,7 +56,7 @@ async function handleUpload() {
 function handleFileChange(file) {
   // 校验文件类型
   if (!file.name.endsWith('.json')) {
-    ElMessage.error('只接受 JSON 文件')
+    Message.error('只接受 JSON 文件')
     return false
   }
   uploadFileList.value = [file]
@@ -66,11 +66,16 @@ function handleFileChange(file) {
 // 回滚
 async function handleRollback(version) {
   try {
-    await ElMessageBox.confirm(`确定回滚到 v${version.version_no}（${version.note || '无备注'}）吗？`, '确认回滚', { type: 'warning' })
-    await rollbackVersion(version.id)
-    ElMessage.success(`已回滚到 v${version.version_no}`)
-    await fetchVersions()
-  } catch { /* 用户取消 */ }
+    Modal.confirm({
+      title: '确认回滚',
+      content: `确定回滚到 v${version.version_no}（${version.note || '无备注'}）吗？`,
+      onOk: async () => {
+        await rollbackVersion(version.id)
+        Message.success(`已回滚到 v${version.version_no}`)
+        await fetchVersions()
+      }
+    })
+  } catch { /* ignored */ }
 }
 
 // 下载
@@ -99,7 +104,7 @@ async function fetchSchools() {
   try {
     schools.value = await getSchoolsList()
   } catch (err) {
-    ElMessage.error(err.message || '获取学校列表失败')
+    Message.error(err.message || '获取学校列表失败')
   } finally {
     schoolsLoading.value = false
   }
@@ -155,7 +160,7 @@ async function openEditDialog(schoolId, groupId) {
     })
     editDialogVisible.value = true
   } catch (err) {
-    ElMessage.error(err.message || '获取详情失败')
+    Message.error(err.message || '获取详情失败')
   }
 }
 
@@ -164,12 +169,12 @@ async function handleSaveEdit() {
     const schoolId = editingGroup.value.school_id
     const groupId = editingGroup.value.group.id
     await editGroup(schoolId, groupId, editForm)
-    ElMessage.success('编辑保存成功，已生成新版本')
+    Message.success('编辑保存成功，已生成新版本')
     editDialogVisible.value = false
     await fetchSchools()
     await fetchVersions()
   } catch (err) {
-    ElMessage.error(err.message || '保存失败')
+    Message.error(err.message || '保存失败')
   }
 }
 
@@ -182,168 +187,160 @@ onMounted(async () => {
 
 <template>
   <div class="page-container">
-    <el-tabs v-model="activeTab">
+    <a-tabs v-model:active-key="activeTab">
       <!-- 版本管理 -->
-      <el-tab-pane label="📦 版本管理" name="versions">
+      <a-tab-pane title="📦 版本管理" key="versions">
         <div class="tab-header">
-          <el-button type="primary" @click="uploadDialogVisible = true" :icon="'Upload'">
+          <a-button type="primary" @click="uploadDialogVisible = true">
+            <template #icon><icon-upload /></template>
             上传新版本
-          </el-button>
+          </a-button>
         </div>
-        <el-table :data="versions" v-loading="versionsLoading" stripe style="width: 100%">
-          <el-table-column label="版本" width="80">
-            <template #default="{ row }">v{{ row.version_no }}</template>
-          </el-table-column>
-          <el-table-column label="状态" width="100" align="center">
-            <template #default="{ row }">
-              <el-tag :type="row.is_active ? 'success' : 'info'" size="small" effect="dark">
-                {{ row.is_active ? '当前使用' : '历史' }}
-              </el-tag>
-            </template>
-          </el-table-column>
-          <el-table-column prop="school_count" label="院校数" width="80" align="center" />
-          <el-table-column prop="group_count" label="专业组数" width="90" align="center" />
-          <el-table-column prop="note" label="备注" min-width="200" show-overflow-tooltip />
-          <el-table-column prop="uploaded_by_name" label="操作人" width="100" />
-          <el-table-column label="上传时间" min-width="160">
-            <template #default="{ row }">
-              {{ row.uploaded_at ? new Date(row.uploaded_at).toLocaleString('zh-CN') : '-' }}
-            </template>
-          </el-table-column>
-          <el-table-column label="操作" width="160" fixed="right">
-            <template #default="{ row }">
-              <el-button text type="primary" size="small" @click="handleDownload(row)">下载</el-button>
-              <el-button text type="warning" size="small" :disabled="row.is_active" @click="handleRollback(row)">
-                回滚
-              </el-button>
-            </template>
-          </el-table-column>
-        </el-table>
-      </el-tab-pane>
+        <a-table :data="versions" :loading="versionsLoading" :stripe="true">
+          <template #columns>
+            <a-table-column title="版本" :width="80">
+              <template #cell="{ record }">v{{ record.version_no }}</template>
+            </a-table-column>
+            <a-table-column title="状态" :width="100" align="center">
+              <template #cell="{ record }">
+                <a-tag :color="record.is_active ? 'green' : 'gray'" size="small">
+                  {{ record.is_active ? '当前使用' : '历史' }}
+                </a-tag>
+              </template>
+            </a-table-column>
+            <a-table-column data-index="school_count" title="院校数" :width="80" align="center" />
+            <a-table-column data-index="group_count" title="专业组数" :width="90" align="center" />
+            <a-table-column data-index="note" title="备注" ellipsis />
+            <a-table-column data-index="uploaded_by_name" title="操作人" :width="100" />
+            <a-table-column title="上传时间" :width="160">
+              <template #cell="{ record }">
+                {{ record.uploaded_at ? new Date(record.uploaded_at).toLocaleString('zh-CN') : '-' }}
+              </template>
+            </a-table-column>
+            <a-table-column title="操作" :width="160" fixed="right">
+              <template #cell="{ record }">
+                <a-button type="text" size="small" @click="handleDownload(record)">下载</a-button>
+                <a-button type="text" status="warning" size="small" :disabled="record.is_active" @click="handleRollback(record)">
+                  回滚
+                </a-button>
+              </template>
+            </a-table-column>
+          </template>
+        </a-table>
+      </a-tab-pane>
 
       <!-- 逐条编辑 -->
-      <el-tab-pane label="✏️ 逐条编辑" name="edit">
+      <a-tab-pane title="✏️ 逐条编辑" key="edit">
         <div class="tab-header">
-          <el-input
+          <a-input
             v-model="searchKey"
             placeholder="搜索院校名称或标签..."
-            clearable
+            allow-clear
             style="max-width: 320px"
             @input="filterSchools"
-            :prefix-icon="'Search'"
-          />
+          >
+            <template #prefix><icon-search /></template>
+          </a-input>
         </div>
-        <div class="schools-list" v-loading="schoolsLoading">
-          <el-collapse>
-            <el-collapse-item
-              v-for="school in filteredSchools"
-              :key="school.id"
-              :title="school.name"
-              :name="school.id"
-            >
-              <template #title>
-                <span class="school-collapse-title">
-                  {{ school.name }}
-                  <el-tag v-for="tag in school.tags" :key="tag" size="small" type="info" style="margin-left: 6px">
-                    {{ tag }}
-                  </el-tag>
-                  <span class="group-count">（{{ school.groups.length }} 个专业组）</span>
-                </span>
-              </template>
-              <el-table :data="school.groups" size="small" stripe>
-                <el-table-column prop="name" label="专业组" min-width="180" />
-                <el-table-column prop="entry_rule_text" label="准入规则" min-width="120" />
-                <el-table-column prop="preliminary_line" label="实际通过线" width="90" />
-                <el-table-column prop="admission_count" label="招生人数" width="90" />
-                <el-table-column label="操作" width="80" fixed="right">
-                  <template #default="{ row }">
-                    <el-button text type="primary" size="small" @click="openEditDialog(school.id, row.id)">
-                      编辑
-                    </el-button>
+        <div class="schools-list">
+          <a-spin :loading="schoolsLoading" style="width: 100%; min-height: 200px;">
+            <a-collapse>
+              <a-collapse-item
+                v-for="school in filteredSchools"
+                :key="school.id"
+                :header="school.name"
+              >
+                <template #header>
+                  <span class="school-collapse-title">
+                    {{ school.name }}
+                    <a-tag v-for="tag in school.tags" :key="tag" size="small" color="arcoblue" style="margin-left: 6px">
+                      {{ tag }}
+                    </a-tag>
+                    <span class="group-count">（{{ school.groups.length }} 个专业组）</span>
+                  </span>
+                </template>
+                <a-table :data="school.groups" size="small" :stripe="true">
+                  <template #columns>
+                    <a-table-column data-index="name" title="专业组" :width="180" />
+                    <a-table-column data-index="entry_rule_text" title="准入规则" :width="120" />
+                    <a-table-column data-index="preliminary_line" title="实际通过线" :width="90" />
+                    <a-table-column data-index="admission_count" title="招生人数" :width="90" />
+                    <a-table-column title="操作" :width="80" fixed="right">
+                      <template #cell="{ record }">
+                        <a-button type="text" size="small" @click="openEditDialog(school.id, record.id)">
+                          编辑
+                        </a-button>
+                      </template>
+                    </a-table-column>
                   </template>
-                </el-table-column>
-              </el-table>
-            </el-collapse-item>
-          </el-collapse>
+                </a-table>
+              </a-collapse-item>
+            </a-collapse>
+          </a-spin>
         </div>
-      </el-tab-pane>
-    </el-tabs>
+      </a-tab-pane>
+    </a-tabs>
 
     <!-- 上传弹窗 -->
-    <el-dialog v-model="uploadDialogVisible" title="上传新版本" width="500px" destroy-on-close>
-      <el-upload
-        drag
+    <a-modal v-model:visible="uploadDialogVisible" title="上传新版本" :width="500" unmount-on-close @cancel="uploadDialogVisible = false" @ok="handleUpload" :ok-loading="uploading" ok-text="确认上传">
+      <a-upload
+        draggable
         :auto-upload="false"
         :limit="1"
         accept=".json"
-        :on-change="handleFileChange"
+        @change="(_, currentFile) => handleFileChange(currentFile.file)"
         :file-list="uploadFileList"
-      >
-        <el-icon style="font-size: 48px; color: #c0c4cc"><UploadFilled /></el-icon>
-        <div style="margin-top: 8px">拖拽文件到此处，或 <em>点击上传</em></div>
-        <template #tip>
-          <div style="color: #909399; margin-top: 8px">仅支持 .json 格式文件</div>
-        </template>
-      </el-upload>
-      <el-input
+      />
+      <a-textarea
         v-model="uploadNote"
-        type="textarea"
         placeholder="更新备注（选填）"
-        :rows="2"
+        :auto-size="{ minRows: 2, maxRows: 4 }"
         style="margin-top: 16px"
       />
-      <template #footer>
-        <el-button @click="uploadDialogVisible = false">取消</el-button>
-        <el-button type="primary" :loading="uploading" @click="handleUpload">确认上传</el-button>
-      </template>
-    </el-dialog>
+    </a-modal>
 
     <!-- 编辑弹窗 -->
-    <el-dialog v-model="editDialogVisible" :title="`编辑：${editingSchoolName} - ${editingGroup?.group?.name || ''}`" width="600px" destroy-on-close>
-      <el-form :model="editForm" label-width="120px" size="default">
-        <el-form-item label="实际通过线">
-          <el-input-number v-model="editForm.preliminary_line" :min="0" style="width: 100%" />
-        </el-form-item>
-        <el-form-item label="报考线">
-          <el-input-number v-model="editForm.entry_rule_score" :min="0" style="width: 100%" />
-        </el-form-item>
-        <el-form-item label="准入规则原文">
-          <el-input v-model="editForm.entry_rule_text" />
-        </el-form-item>
-        <el-divider content-position="left">等级赋值分</el-divider>
-        <el-row :gutter="12">
-          <el-col :span="4" v-for="grade in GRADE_OPTIONS" :key="grade">
-            <el-form-item :label="grade">
-              <el-input-number v-model="editForm.rules[grade]" :min="0" size="small" style="width: 100%" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-form-item label="选考科目">
-          <el-select v-model="editForm.required_subjects" multiple placeholder="选择科目" style="width: 100%">
-            <el-option v-for="s in ['物理','化学','生物','历史','地理','政治','技术']" :key="s" :label="s" :value="s" />
-          </el-select>
-        </el-form-item>
-        <el-form-item label="科目模式">
-          <el-radio-group v-model="editForm.required_subjects_mode">
-            <el-radio value="and">全部满足 (and)</el-radio>
-            <el-radio value="or">满足其一 (or)</el-radio>
-          </el-radio-group>
-        </el-form-item>
-        <el-form-item label="去年综合分">
-          <el-input-number v-model="editForm.last_year_composite_score" :min="0" :precision="2" style="width: 100%" />
-        </el-form-item>
-        <el-form-item label="招生人数">
-          <el-input-number v-model="editForm.admission_count" :min="0" style="width: 100%" />
-        </el-form-item>
-        <el-form-item label="专业描述">
-          <el-input v-model="editForm.description" type="textarea" :rows="3" />
-        </el-form-item>
-      </el-form>
-      <template #footer>
-        <el-button @click="editDialogVisible = false">取消</el-button>
-        <el-button type="primary" @click="handleSaveEdit">保存（生成新版本）</el-button>
-      </template>
-    </el-dialog>
+    <a-modal v-model:visible="editDialogVisible" :title="`编辑：${editingSchoolName} - ${editingGroup?.group?.name || ''}`" :width="600" unmount-on-close @cancel="editDialogVisible = false" @ok="handleSaveEdit" ok-text="保存（生成新版本）">
+      <a-form :model="editForm" auto-label-width size="medium">
+        <a-form-item label="实际通过线">
+          <a-input-number v-model="editForm.preliminary_line" :min="0" style="width: 100%" />
+        </a-form-item>
+        <a-form-item label="报考线">
+          <a-input-number v-model="editForm.entry_rule_score" :min="0" style="width: 100%" />
+        </a-form-item>
+        <a-form-item label="准入规则原文">
+          <a-input v-model="editForm.entry_rule_text" />
+        </a-form-item>
+        <a-divider orientation="left">等级赋值分</a-divider>
+        <a-row :gutter="12">
+          <a-col :span="4" v-for="grade in GRADE_OPTIONS" :key="grade">
+            <a-form-item :label="grade">
+              <a-input-number v-model="editForm.rules[grade]" :min="0" size="small" style="width: 100%" />
+            </a-form-item>
+          </a-col>
+        </a-row>
+        <a-form-item label="选考科目">
+          <a-select v-model="editForm.required_subjects" multiple placeholder="选择科目" style="width: 100%">
+            <a-option v-for="s in ['物理','化学','生物','历史','地理','政治','技术']" :key="s" :label="s" :value="s" />
+          </a-select>
+        </a-form-item>
+        <a-form-item label="科目模式">
+          <a-radio-group v-model="editForm.required_subjects_mode">
+            <a-radio value="and">全部满足 (and)</a-radio>
+            <a-radio value="or">满足其一 (or)</a-radio>
+          </a-radio-group>
+        </a-form-item>
+        <a-form-item label="去年综合分">
+          <a-input-number v-model="editForm.last_year_composite_score" :min="0" :precision="2" style="width: 100%" />
+        </a-form-item>
+        <a-form-item label="招生人数">
+          <a-input-number v-model="editForm.admission_count" :min="0" style="width: 100%" />
+        </a-form-item>
+        <a-form-item label="专业描述">
+          <a-textarea v-model="editForm.description" :auto-size="{ minRows: 3, maxRows: 6 }" />
+        </a-form-item>
+      </a-form>
+    </a-modal>
   </div>
 </template>
 

@@ -4,7 +4,7 @@
  */
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
-import { ElMessage } from 'element-plus'
+import { Message } from '@arco-design/web-vue'
 import { useAuthStore } from '@/stores/auth'
 
 const router = useRouter()
@@ -28,10 +28,10 @@ async function handleLogin() {
   loading.value = true
   try {
     await auth.login(form.username, form.password)
-    ElMessage.success('登录成功')
+    Message.success('登录成功')
     router.push('/match')
   } catch (err) {
-    ElMessage.error(err.message || '登录失败')
+    Message.error(err.message || '登录失败')
   } finally {
     loading.value = false
   }
@@ -46,42 +46,48 @@ async function handleLogin() {
           <h1 class="login-title">📋 三位一体筛查工具</h1>
           <p class="login-subtitle">浙江三位一体招生快速匹配系统</p>
         </div>
-        <el-form
+        <a-form
           ref="formRef"
           :model="form"
           :rules="rules"
-          label-width="0"
+          auto-label-width
           size="large"
           @keyup.enter="handleLogin"
         >
-          <el-form-item prop="username">
-            <el-input
+          <a-form-item field="username" hide-label>
+            <a-input
               v-model="form.username"
               placeholder="用户名"
-              :prefix-icon="'User'"
-              clearable
-            />
-          </el-form-item>
-          <el-form-item prop="password">
-            <el-input
+              allow-clear
+            >
+              <template #prefix>
+                <icon-user />
+              </template>
+            </a-input>
+          </a-form-item>
+          <a-form-item field="password" hide-label>
+            <a-input-password
               v-model="form.password"
-              type="password"
               placeholder="密码"
-              :prefix-icon="'Lock'"
-              show-password
-            />
-          </el-form-item>
-          <el-form-item>
-            <el-button
+              allow-clear
+            >
+              <template #prefix>
+                <icon-lock />
+              </template>
+            </a-input-password>
+          </a-form-item>
+          <a-form-item hide-label>
+            <a-button
               type="primary"
               class="login-btn"
               :loading="loading"
               @click="handleLogin"
+              long
             >
               登 录
-            </el-button>
-          </el-form-item>
-        </el-form>
+            </a-button>
+          </a-form-item>
+        </a-form>
       </div>
     </div>
   </div>

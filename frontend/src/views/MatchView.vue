@@ -3,7 +3,7 @@
  * MatchView.vue — 成绩录入 + 匹配结果展示
  */
 import { ref, reactive, computed, watch } from 'vue'
-import { ElMessage } from 'element-plus'
+import { Message } from '@arco-design/web-vue'
 import { matchSchools } from '@/api/match'
 import ResultCard from '@/components/ResultCard.vue'
 import { GRADE_OPTIONS, SUBJECT_OPTIONS, ALL_XUEKAO_SUBJECTS, STATUS_COLOR_MAP, FILTER_TAGS } from '@/constants'
@@ -82,7 +82,7 @@ async function handleSubmit() {
   // 检查学考等级是否全部填写
   for (const subject of allXuekaoSubjects.value) {
     if (!form.xuekaoGrades[subject]) {
-      ElMessage.warning(`请选择 ${subject} 的学考等级`)
+      Message.warning(`请选择 ${subject} 的学考等级`)
       return
     }
   }
@@ -95,9 +95,9 @@ async function handleSubmit() {
     })
     results.value = data
     activeTab.value = '可报考'
-    ElMessage.success(`匹配完成：可报考 ${data['可报考'].length}，待确认 ${data['待确认'].length}，不可报考 ${data['不可报考'].length}`)
+    Message.success(`匹配完成：可报考 ${data['可报考'].length}，待确认 ${data['待确认'].length}，不可报考 ${data['不可报考'].length}`)
   } catch (err) {
-    ElMessage.error(err.message || '匹配失败')
+    Message.error(err.message || '匹配失败')
   } finally {
     loading.value = false
   }
@@ -107,6 +107,13 @@ function handleReset() {
   formRef.value.resetFields()
   form.xuekaoGrades = {}
   results.value = null
+}
+
+// 快速全选等级
+function fillAllGrades(grade) {
+  allXuekaoSubjects.value.forEach(subject => {
+    form.xuekaoGrades[subject] = grade
+  })
 }
 
 // 下载 Excel
@@ -143,142 +150,140 @@ function handleDownloadExcel() {
   XLSX.utils.book_append_sheet(wb, ws, '匹配结果')
   const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' })
   saveAs(new Blob([wbout], { type: 'application/octet-stream' }), '三位一体匹配结果.xlsx')
-  ElMessage.success('Excel 下载成功')
+  Message.success('Excel 下载成功')
 }
 </script>
 
 <template>
   <div class="page-container">
     <!-- 录入表单 -->
-    <el-card class="form-card" shadow="hover">
-      <template #header>
+    <a-card class="form-card" hoverable>
+      <template #title>
         <div class="card-header">
-          <span>📝 成绩录入</span>
+          <span>成绩录入</span>
           <div>
-            <el-button text @click="handleReset">重置</el-button>
+            <a-button type="text" @click="handleReset">重置</a-button>
           </div>
         </div>
       </template>
 
-      <el-form
+      <a-form
         ref="formRef"
         :model="form"
         :rules="rules"
-        label-width="100px"
-        label-position="top"
+        auto-label-width
+        layout="vertical"
       >
         <!-- 高考成绩（已移除） -->
 
         <!-- 选考科目 -->
-        <el-divider content-position="left">选考科目</el-divider>
-        <el-form-item label="7选3" prop="selectedSubjects">
-          <el-checkbox-group v-model="form.selectedSubjects" :max="3">
-            <el-checkbox
+        <a-divider orientation="left">选考科目</a-divider>
+        <a-form-item label="7选3" field="selectedSubjects">
+          <a-checkbox-group v-model="form.selectedSubjects" :max="3">
+            <a-checkbox
               v-for="subject in SUBJECT_OPTIONS"
               :key="subject"
-              :label="subject"
               :value="subject"
-              border
             >
               {{ subject }}
-            </el-checkbox>
-          </el-checkbox-group>
-        </el-form-item>
+            </a-checkbox>
+          </a-checkbox-group>
+        </a-form-item>
 
         <!-- 学考等级 -->
-        <el-divider content-position="left">学考等级</el-divider>
-        <el-row :gutter="16">
-          <el-col
+        <a-divider orientation="left">学考等级</a-divider>
+        <div class="quick-fill">
+          <span class="quick-fill-label">快速填入：</span>
+          <a-button v-for="g in ['A', 'B', 'C', 'D']" :key="g" size="small" @click="fillAllGrades(g)">全选{{ g }}</a-button>
+        </div>
+        <a-row :gutter="16">
+          <a-col
             v-for="subject in allXuekaoSubjects"
             :key="subject"
             :span="8"
             :xs="12"
           >
-            <el-form-item :label="subject + ' 学考'">
-              <el-select
-                v-model="form.xuekaoGrades[subject]"
-                placeholder="选择等级"
-                style="width: 100%"
-              >
-                <el-option
+            <a-form-item :label="subject">
+              <a-radio-group v-model="form.xuekaoGrades[subject]" type="button" size="small">
+                <a-radio
                   v-for="grade in GRADE_OPTIONS"
                   :key="grade"
-                  :label="grade"
                   :value="grade"
-                />
-              </el-select>
-            </el-form-item>
-          </el-col>
-        </el-row>
+                >{{ grade }}</a-radio>
+              </a-radio-group>
+            </a-form-item>
+          </a-col>
+        </a-row>
 
         <!-- 提交 -->
-        <el-form-item>
-          <el-button
+        <a-form-item>
+          <a-button
             type="primary"
             size="large"
             :loading="loading"
             @click="handleSubmit"
-            style="width: 100%"
+            long
           >
             开始匹配
-          </el-button>
-        </el-form-item>
-      </el-form>
-    </el-card>
+          </a-button>
+        </a-form-item>
+      </a-form>
+    </a-card>
 
     <!-- 匹配结果 -->
     <template v-if="results">
       <!-- 标签筛选 -->
       <div class="filter-section">
-        <el-checkbox-group v-model="selectedTags" size="default">
-          <el-checkbox-button v-for="tag in FILTER_TAGS" :key="tag" :value="tag">
+        <a-checkbox-group v-model="selectedTags">
+          <a-checkbox v-for="tag in FILTER_TAGS" :key="tag" :value="tag">
             {{ tag }}
-          </el-checkbox-button>
-        </el-checkbox-group>
+          </a-checkbox>
+        </a-checkbox-group>
       </div>
 
       <!-- 统计概览 -->
-      <el-row :gutter="16" class="summary-row">
-        <el-col :span="8" v-for="(count, status) in summary" :key="status">
-          <el-card
-            shadow="hover"
+      <a-row :gutter="16" class="summary-row">
+        <a-col :span="8" v-for="(count, status) in summary" :key="status">
+          <a-card
+            hoverable
             class="summary-card hover-card"
             :class="'summary-card--' + status"
             @click="activeTab = status"
           >
             <div class="summary-count">{{ count }}</div>
             <div class="summary-label">{{ status }}</div>
-          </el-card>
-        </el-col>
-      </el-row>
+          </a-card>
+        </a-col>
+      </a-row>
 
       <!-- 操作栏 -->
       <div class="action-bar">
-        <el-radio-group v-model="activeTab" size="default">
-          <el-radio-button v-for="status in ['可报考', '待确认', '不可报考']" :key="status" :value="status">
+        <a-radio-group v-model="activeTab" type="button" size="large">
+          <a-radio v-for="status in ['可报考', '待确认', '不可报考']" :key="status" :value="status">
             {{ status }}（{{ summary[status] }}）
-          </el-radio-button>
-        </el-radio-group>
-        <el-button type="success" @click="handleDownloadExcel" :icon="'Download'">
+          </a-radio>
+        </a-radio-group>
+        <a-button type="primary" status="success" @click="handleDownloadExcel">
+          <template #icon><icon-download /></template>
           下载 Excel
-        </el-button>
+        </a-button>
       </div>
 
       <!-- 结果列表 (按学校合并展示) -->
       <transition-group name="list" tag="div" class="results-list" v-if="groupedResults.length > 0">
-        <el-card
+        <a-card
           v-for="school in groupedResults"
           :key="school.school_name"
           class="school-group-card"
-          shadow="never"
+          :bordered="true"
         >
-          <template #header>
+          <template #title>
             <div class="school-header">
               <span class="school-name">{{ school.school_name }}</span>
               <div class="school-tags" v-if="school.tags.length">
-                <el-tag v-for="tag in school.tags" :key="tag" size="small" type="info" effect="plain">
+                <a-tag v-for="tag in school.tags" :key="tag" size="small" color="arcoblue" bordered>
                   {{ tag }}
-                </el-tag>
+                </a-tag>
               </div>
             </div>
           </template>
@@ -289,10 +294,10 @@ function handleDownloadExcel() {
               :result="item"
             />
           </div>
-        </el-card>
+        </a-card>
       </transition-group>
 
-      <el-empty v-if="groupedResults.length === 0" description="暂无匹配结果" />
+      <a-empty v-if="groupedResults.length === 0" description="暂无匹配结果" />
     </template>
   </div>
 </template>
@@ -362,25 +367,25 @@ function handleDownloadExcel() {
 .results-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 
 .school-group-card {
   border-radius: 12px;
-  border: 1px solid var(--el-border-color-light);
-  background: var(--bg-color); /* 如果需要和全局背景略有区分即可，默认白也可 */
+  background: var(--bg-color);
 }
 
-/* 覆盖 el-card 的 header padding 以紧凑显示 */
-:deep(.school-group-card > .el-card__header) {
-  padding: 12px 20px;
+/* 覆盖 a-card 的 header padding 以紧凑显示 */
+:deep(.school-group-card > .arco-card-header) {
+  padding: 8px 16px;
   background-color: #fcfcfc;
-  border-bottom: 1px solid var(--el-border-color-lighter);
+  border-bottom: 1px solid var(--color-border);
+  height: auto;
 }
 
-:deep(.school-group-card > .el-card__body) {
-  padding: 16px;
-  background-color: #f5f7fa; /* 使得内部的 ResultCard 有一点层级感 */
+:deep(.school-group-card > .arco-card-body) {
+  padding: 10px 12px;
+  background-color: #f5f7fa;
 }
 
 .school-header {
@@ -405,6 +410,19 @@ function handleDownloadExcel() {
 .group-items {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
+}
+
+.quick-fill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.quick-fill-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
 }
 </style>
