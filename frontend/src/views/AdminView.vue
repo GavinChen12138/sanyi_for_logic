@@ -105,20 +105,37 @@ onMounted(fetchUsers)
 
 <template>
   <div class="page-container">
-    <a-card class="admin-card" hoverable>
-      <template #title>
-        <div class="card-header">
-          <span>👥 账号管理</span>
-          <a-button type="primary" @click="showCreateDialog = true">
-            <template #icon><icon-plus /></template>
-            创建账号
-          </a-button>
-        </div>
-      </template>
+    <!-- 页面标题区 -->
+    <div class="page-header">
+      <div class="page-header-left">
+        <h1 class="page-title">账号管理</h1>
+        <p class="page-subtitle">管理系统用户账号、角色权限和状态</p>
+      </div>
+      <a-button type="primary" size="large" class="create-btn" @click="showCreateDialog = true">
+        <template #icon><icon-plus /></template>
+        创建账号
+      </a-button>
+    </div>
 
-      <a-table :data="users" :loading="loading" :stripe="true">
+    <a-card class="admin-card" :bordered="false">
+      <a-table
+        :data="users"
+        :loading="loading"
+        :stripe="true"
+        :hoverable="true"
+        class="admin-table"
+      >
         <template #columns>
-          <a-table-column data-index="name" title="姓名" :width="100" />
+          <a-table-column data-index="name" title="姓名" :width="100">
+            <template #cell="{ record }">
+              <div class="user-cell">
+                <a-avatar :size="28" class="user-cell-avatar">
+                  <template #icon><icon-user /></template>
+                </a-avatar>
+                <span class="user-cell-name">{{ record.name }}</span>
+              </div>
+            </template>
+          </a-table-column>
           <a-table-column data-index="username" title="用户名" :width="120" />
           <a-table-column title="角色" :width="140">
             <template #cell="{ record }">
@@ -139,35 +156,37 @@ onMounted(fetchUsers)
           </a-table-column>
           <a-table-column title="状态" :width="80" align="center">
             <template #cell="{ record }">
-              <a-tag :color="record.is_active ? 'green' : 'red'" size="small">
+              <a-tag :color="record.is_active ? 'green' : 'red'" size="small" class="status-pill">
                 {{ record.is_active ? '正常' : '禁用' }}
               </a-tag>
             </template>
           </a-table-column>
           <a-table-column title="创建时间" :width="160">
             <template #cell="{ record }">
-              {{ new Date(record.created_at).toLocaleString('zh-CN') }}
+              <span class="time-text">{{ new Date(record.created_at).toLocaleString('zh-CN') }}</span>
             </template>
           </a-table-column>
           <a-table-column title="操作" :width="180" fixed="right">
             <template #cell="{ record }">
-              <a-button
-                type="text"
-                size="small"
-                :disabled="record.id === auth.user?.id"
-                @click="handleResetPassword(record)"
-              >
-                重置密码
-              </a-button>
-              <a-button
-                type="text"
-                :status="record.is_active ? 'danger' : 'success'"
-                size="small"
-                :disabled="record.id === auth.user?.id"
-                @click="handleToggleStatus(record)"
-              >
-                {{ record.is_active ? '禁用' : '启用' }}
-              </a-button>
+              <a-space>
+                <a-button
+                  type="text"
+                  size="small"
+                  :disabled="record.id === auth.user?.id"
+                  @click="handleResetPassword(record)"
+                >
+                  重置密码
+                </a-button>
+                <a-button
+                  type="text"
+                  :status="record.is_active ? 'danger' : 'success'"
+                  size="small"
+                  :disabled="record.id === auth.user?.id"
+                  @click="handleToggleStatus(record)"
+                >
+                  {{ record.is_active ? '禁用' : '启用' }}
+                </a-button>
+              </a-space>
             </template>
           </a-table-column>
         </template>
@@ -175,7 +194,14 @@ onMounted(fetchUsers)
     </a-card>
 
     <!-- 创建账号弹窗 -->
-    <a-modal v-model:visible="showCreateDialog" title="创建账号" :width="460" unmount-on-close @cancel="showCreateDialog = false" @ok="handleCreateUser">
+    <a-modal
+      v-model:visible="showCreateDialog"
+      title="创建账号"
+      :width="460"
+      unmount-on-close
+      @cancel="showCreateDialog = false"
+      @ok="handleCreateUser"
+    >
       <a-form ref="createFormRef" :model="createForm" :rules="createRules" auto-label-width>
         <a-form-item label="姓名" field="name">
           <a-input v-model="createForm.name" placeholder="请输入姓名" />
@@ -202,15 +228,75 @@ onMounted(fetchUsers)
 </template>
 
 <style scoped>
-.admin-card {
-  border-radius: 12px;
-}
-
-.card-header {
+/* ── 页面头部 ── */
+.page-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  font-size: 16px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.page-header-left {
+  flex: 1;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.create-btn {
+  border-radius: var(--radius-md);
   font-weight: 600;
+  box-shadow: 0 2px 8px rgba(22, 93, 255, 0.2);
+}
+
+/* ── 表格卡片 ── */
+.admin-card {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* 用户名单元格 */
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-cell-avatar {
+  background: linear-gradient(135deg, #165DFF, #6AA1FF) !important;
+  flex-shrink: 0;
+}
+
+.user-cell-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* 状态 pill */
+.status-pill {
+  border-radius: var(--radius-pill) !important;
+}
+
+/* 时间文字 */
+.time-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 表格行 hover */
+.admin-table :deep(.arco-table-tr:hover .arco-table-td) {
+  background: var(--primary-light) !important;
 }
 </style>

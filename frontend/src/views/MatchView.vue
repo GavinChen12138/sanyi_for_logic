@@ -45,6 +45,16 @@ const summary = computed(() => {
 // 当前筛选显示的状态
 const activeTab = ref('可报考')
 
+// 切换筛选标签
+function toggleTag(tag) {
+  const index = selectedTags.value.indexOf(tag)
+  if (index > -1) {
+    selectedTags.value.splice(index, 1)
+  } else {
+    selectedTags.value.push(tag)
+  }
+}
+
 // 当前展示的结果
 const displayResults = computed(() => {
   if (!results.value) return []
@@ -157,13 +167,17 @@ function handleDownloadExcel() {
 <template>
   <div class="page-container">
     <!-- 录入表单 -->
-    <a-card class="form-card" hoverable>
+    <a-card class="form-card card-accent-top" hoverable>
       <template #title>
         <div class="card-header">
-          <span>成绩录入</span>
-          <div>
-            <a-button type="text" @click="handleReset">重置</a-button>
+          <div class="card-title-group">
+            <icon-edit class="card-title-icon" />
+            <span>成绩录入</span>
           </div>
+          <a-button type="text" size="small" @click="handleReset">
+            <template #icon><icon-refresh /></template>
+            重置
+          </a-button>
         </div>
       </template>
 
@@ -174,36 +188,52 @@ function handleDownloadExcel() {
         auto-label-width
         layout="vertical"
       >
-        <!-- 高考成绩（已移除） -->
-
         <!-- 选考科目 -->
-        <a-divider orientation="left">选考科目</a-divider>
-        <a-form-item label="7选3" field="selectedSubjects">
-          <a-checkbox-group v-model="form.selectedSubjects" :max="3">
-            <a-checkbox
-              v-for="subject in SUBJECT_OPTIONS"
-              :key="subject"
-              :value="subject"
-            >
-              {{ subject }}
-            </a-checkbox>
-          </a-checkbox-group>
+        <div class="section-header">
+          <icon-bookmark class="section-icon" />
+          <span class="section-title">选考科目</span>
+          <span class="section-hint">请选择 3 门</span>
+        </div>
+        <a-form-item label="" field="selectedSubjects" hide-label>
+          <div class="subject-pills">
+            <a-checkbox-group v-model="form.selectedSubjects" :max="3">
+              <a-checkbox
+                v-for="subject in SUBJECT_OPTIONS"
+                :key="subject"
+                :value="subject"
+                class="subject-pill"
+              >
+                {{ subject }}
+              </a-checkbox>
+            </a-checkbox-group>
+          </div>
         </a-form-item>
 
         <!-- 学考等级 -->
-        <a-divider orientation="left">学考等级</a-divider>
-        <div class="quick-fill">
-          <span class="quick-fill-label">快速填入：</span>
-          <a-button v-for="g in ['A', 'B', 'C', 'D']" :key="g" size="small" @click="fillAllGrades(g)">全选{{ g }}</a-button>
+        <div class="section-header">
+          <icon-star class="section-icon" />
+          <span class="section-title">学考等级</span>
+          <div class="quick-fill">
+            <a-button
+              v-for="g in ['A', 'B', 'C', 'D']"
+              :key="g"
+              size="mini"
+              type="outline"
+              class="quick-fill-btn"
+              @click="fillAllGrades(g)"
+            >
+              全{{ g }}
+            </a-button>
+          </div>
         </div>
-        <a-row :gutter="16">
+        <a-row :gutter="[12, 4]">
           <a-col
             v-for="subject in allXuekaoSubjects"
             :key="subject"
             :span="8"
             :xs="12"
           >
-            <a-form-item :label="subject">
+            <a-form-item :label="subject" class="grade-item">
               <a-radio-group v-model="form.xuekaoGrades[subject]" type="button" size="small">
                 <a-radio
                   v-for="grade in GRADE_OPTIONS"
@@ -216,14 +246,16 @@ function handleDownloadExcel() {
         </a-row>
 
         <!-- 提交 -->
-        <a-form-item>
+        <a-form-item class="submit-row">
           <a-button
             type="primary"
             size="large"
             :loading="loading"
             @click="handleSubmit"
             long
+            class="submit-btn"
           >
+            <template #icon><icon-search /></template>
             开始匹配
           </a-button>
         </a-form-item>
@@ -232,41 +264,74 @@ function handleDownloadExcel() {
 
     <!-- 匹配结果 -->
     <template v-if="results">
-      <!-- 标签筛选 -->
-      <div class="filter-section">
-        <a-checkbox-group v-model="selectedTags">
-          <a-checkbox v-for="tag in FILTER_TAGS" :key="tag" :value="tag">
-            {{ tag }}
-          </a-checkbox>
-        </a-checkbox-group>
-      </div>
-
       <!-- 统计概览 -->
       <a-row :gutter="16" class="summary-row">
-        <a-col :span="8" v-for="(count, status) in summary" :key="status">
-          <a-card
-            hoverable
-            class="summary-card hover-card"
-            :class="'summary-card--' + status"
-            @click="activeTab = status"
+        <a-col :span="8">
+          <div
+            class="stat-card stat-card--success hover-card"
+            :class="{ 'stat-card--active': activeTab === '可报考' }"
+            @click="activeTab = '可报考'"
           >
-            <div class="summary-count">{{ count }}</div>
-            <div class="summary-label">{{ status }}</div>
-          </a-card>
+            <div class="stat-count">{{ summary.可报考 }}</div>
+            <div class="stat-label">可报考</div>
+          </div>
+        </a-col>
+        <a-col :span="8">
+          <div
+            class="stat-card stat-card--warning hover-card"
+            :class="{ 'stat-card--active': activeTab === '待确认' }"
+            @click="activeTab = '待确认'"
+          >
+            <div class="stat-count">{{ summary.待确认 }}</div>
+            <div class="stat-label">待确认</div>
+          </div>
+        </a-col>
+        <a-col :span="8">
+          <div
+            class="stat-card stat-card--danger hover-card"
+            :class="{ 'stat-card--active': activeTab === '不可报考' }"
+            @click="activeTab = '不可报考'"
+          >
+            <div class="stat-count">{{ summary.不可报考 }}</div>
+            <div class="stat-label">不可报考</div>
+          </div>
         </a-col>
       </a-row>
 
       <!-- 操作栏 -->
       <div class="action-bar">
-        <a-radio-group v-model="activeTab" type="button" size="large">
-          <a-radio v-for="status in ['可报考', '待确认', '不可报考']" :key="status" :value="status">
-            {{ status }}（{{ summary[status] }}）
-          </a-radio>
-        </a-radio-group>
-        <a-button type="primary" status="success" @click="handleDownloadExcel">
+        <div class="action-left">
+          <a-radio-group v-model="activeTab" type="button" size="large">
+            <a-radio v-for="status in ['可报考', '待确认', '不可报考']" :key="status" :value="status">
+              {{ status }}（{{ summary[status] }}）
+            </a-radio>
+          </a-radio-group>
+        </div>
+        <a-button type="primary" status="success" @click="handleDownloadExcel" class="download-btn">
           <template #icon><icon-download /></template>
           下载 Excel
         </a-button>
+      </div>
+
+      <!-- 标签筛选 -->
+      <div class="filter-section">
+        <span class="filter-label">
+          <icon-filter class="filter-icon" />
+          标签筛选
+        </span>
+        <div class="filter-tags">
+          <a-tag 
+            v-for="tag in FILTER_TAGS" 
+            :key="tag" 
+            size="medium" 
+            :color="selectedTags.includes(tag) ? 'arcoblue' : ''" 
+            :bordered="true" 
+            class="filter-tag-pill"
+            @click="toggleTag(tag)"
+          >
+            {{ tag }}
+          </a-tag>
+        </div>
       </div>
 
       <!-- 结果列表 (按学校合并展示) -->
@@ -303,9 +368,11 @@ function handleDownloadExcel() {
 </template>
 
 <style scoped>
+/* ── 表单卡片 ── */
 .form-card {
   margin-bottom: 24px;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 
 .card-header {
@@ -316,76 +383,214 @@ function handleDownloadExcel() {
   font-weight: 600;
 }
 
-.filter-section {
-  margin-bottom: 20px;
-  background: white;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.05);
+.card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
+.card-title-icon {
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+/* ── 段落标题 ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  margin-top: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.section-icon {
+  color: var(--primary-color);
+  font-size: 16px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.section-hint {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-left: auto;
+}
+
+/* ── 科目 Pill 选择 ── */
+.subject-pills {
+  margin-bottom: 8px;
+}
+
+.subject-pills :deep(.arco-checkbox) {
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-color);
+  margin-right: 8px;
+  margin-bottom: 8px;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.subject-pills :deep(.arco-checkbox:hover) {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.subject-pills :deep(.arco-checkbox.arco-checkbox-checked) {
+  background: var(--primary-light);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* ── 快速填入 ── */
+.quick-fill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.quick-fill-btn {
+  border-radius: var(--radius-pill) !important;
+  font-size: 12px;
+  padding: 0 10px !important;
+}
+
+/* ── 学考等级 ── */
+.grade-item {
+  margin-bottom: 8px;
+}
+
+.grade-item :deep(.arco-radio-group-button .arco-radio-button) {
+  border-radius: var(--radius-sm) !important;
+}
+
+/* ── 提交按钮 ── */
+.submit-row {
+  margin-top: 12px;
+}
+
+.submit-btn {
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: box-shadow var(--transition-normal);
+}
+
+.submit-btn:hover {
+  box-shadow: 0 4px 16px rgba(22, 93, 255, 0.35);
+}
+
+/* ── 统计概览 ── */
 .summary-row {
   margin-bottom: 20px;
 }
 
-.summary-card {
-  text-align: center;
-  padding: 16px 0;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s;
+.stat-card--active {
+  box-shadow: var(--shadow-md) !important;
+  transform: scale(1.02);
 }
 
-.summary-card--可报考 { border-left: 4px solid var(--success-color); }
-.summary-card--待确认 { border-left: 4px solid var(--warning-color); }
-.summary-card--不可报考 { border-left: 4px solid var(--danger-color); }
-
-.summary-count {
-  font-size: 32px;
-  font-weight: 700;
-}
-
-.summary-card--可报考 .summary-count { color: var(--success-color); }
-.summary-card--待确认 .summary-count { color: var(--warning-color); }
-.summary-card--不可报考 .summary-count { color: var(--danger-color); }
-
-.summary-label {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-top: 4px;
-}
-
+/* ── 操作栏 ── */
 .action-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
+  padding: 12px 16px;
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   flex-wrap: wrap;
   gap: 12px;
 }
 
-.results-list {
+.action-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.download-btn {
+  border-radius: var(--radius-md);
+  font-weight: 500;
+}
+
+/* ── 标签筛选 ── */
+.filter-section {
+  margin-bottom: 20px;
+  background: white;
+  padding: 14px 16px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.filter-icon {
+  font-size: 14px;
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
+.filter-tag-pill {
+  cursor: pointer;
+  border-radius: var(--radius-pill) !important;
+  transition: all var(--transition-normal);
+}
+
+/* ── 结果列表 ── */
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .school-group-card {
-  border-radius: 12px;
-  background: var(--bg-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 
 /* 覆盖 a-card 的 header padding 以紧凑显示 */
 :deep(.school-group-card > .arco-card-header) {
-  padding: 8px 16px;
-  background-color: #fcfcfc;
-  border-bottom: 1px solid var(--color-border);
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #FAFBFC 0%, #F7F8FA 100%);
+  border-bottom: 1px solid var(--border-color);
   height: auto;
 }
 
 :deep(.school-group-card > .arco-card-body) {
   padding: 10px 12px;
-  background-color: #f5f7fa;
+  background: #F7F8FA;
 }
 
 .school-header {
@@ -396,9 +601,10 @@ function handleDownloadExcel() {
 }
 
 .school-header .school-name {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .school-tags {
@@ -411,18 +617,5 @@ function handleDownloadExcel() {
   display: flex;
   flex-direction: column;
   gap: 6px;
-}
-
-.quick-fill {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.quick-fill-label {
-  font-size: 13px;
-  color: var(--text-secondary);
-  white-space: nowrap;
 }
 </style>

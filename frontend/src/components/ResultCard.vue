@@ -1,6 +1,6 @@
 <script setup>
 /**
- * ResultCard.vue — 单条匹配结果展示（紧凑行样式）
+ * ResultCard.vue — 单条匹配结果展示（紧凑行样式 + 左侧状态色条）
  */
 import { computed } from 'vue'
 import { STATUS_COLOR_MAP } from '@/constants'
@@ -21,6 +21,16 @@ const arcoColorMap = {
 }
 
 const statusColor = computed(() => arcoColorMap[STATUS_COLOR_MAP[props.result.status] || 'info'])
+
+// 状态对应的 CSS 颜色
+const statusBorderColor = computed(() => {
+  const colorMap = {
+    '可报考': 'var(--success-color)',
+    '待确认': 'var(--warning-color)',
+    '不可报考': 'var(--danger-color)'
+  }
+  return colorMap[props.result.status] || 'var(--info-color)'
+})
 
 // 实际通过线展示
 const passingDisplay = computed(() => {
@@ -59,12 +69,15 @@ const lastYearDisplay = computed(() => {
 </script>
 
 <template>
-  <div class="result-row">
-    <!-- 专业组名 + 状态标签 -->
+  <div class="result-row" :style="{ '--status-color': statusBorderColor }">
+    <!-- 左侧状态色条 -->
+    <div class="status-bar"></div>
+
+    <!-- 内容区 -->
     <div class="row-main">
       <div class="row-title">
         <span class="group-name">{{ result.group_name }}</span>
-        <a-tag :color="statusColor" size="small" class="status-tag" style="border-radius: 12px;">
+        <a-tag :color="statusColor" size="small" class="status-tag">
           {{ result.status }}
         </a-tag>
       </div>
@@ -75,12 +88,12 @@ const lastYearDisplay = computed(() => {
         <div class="field">
           <span class="field-label">报考线</span>
           <template v-if="xuekaoDisplay.isText">
-            <span class="field-value">{{ xuekaoDisplay.studentScore }}</span>
+            <span class="field-value tabular-nums">{{ xuekaoDisplay.studentScore }}</span>
             <a-tag color="orange" size="small" class="field-tag">人工核查</a-tag>
             <span class="field-note">{{ xuekaoDisplay.text }}</span>
           </template>
           <template v-else>
-            <span class="field-value">{{ xuekaoDisplay.studentScore }}</span>
+            <span class="field-value tabular-nums">{{ xuekaoDisplay.studentScore }}</span>
             <span class="field-slash">/ {{ xuekaoDisplay.scoreLine }}</span>
             <a-tag :color="xuekaoDisplay.color" size="small" class="field-tag">
               {{ xuekaoDisplay.gap >= 0 ? '+' : '' }}{{ xuekaoDisplay.gap }}
@@ -91,7 +104,7 @@ const lastYearDisplay = computed(() => {
         <!-- 实际通过线 -->
         <div class="field">
           <span class="field-label">通过线</span>
-          <span class="field-value">{{ result.xuekao.student_score }}</span>
+          <span class="field-value tabular-nums">{{ result.xuekao.student_score }}</span>
           <template v-if="passingDisplay.line !== '待定'">
             <span class="field-slash">/ {{ passingDisplay.line }}</span>
             <a-tag :color="passingDisplay.color" size="small" class="field-tag">
@@ -129,7 +142,7 @@ const lastYearDisplay = computed(() => {
 
       <!-- 说明（单独一行，仅在有内容时显示） -->
       <div class="row-reason" v-if="result.status_reason">
-        <span class="field-label">说明：</span>
+        <icon-info-circle class="reason-icon" />
         <span class="reason-text">{{ result.status_reason }}</span>
       </div>
 
@@ -145,21 +158,33 @@ const lastYearDisplay = computed(() => {
 
 <style scoped>
 .result-row {
-  padding: 10px 14px;
+  display: flex;
   background: #fff;
-  border-radius: 8px;
-  border: 1px solid var(--el-border-color-lighter);
-  transition: box-shadow 0.2s;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  transition: box-shadow var(--transition-normal);
+  overflow: hidden;
 }
 
 .result-row:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(22, 93, 255, 0.12);
+}
+
+/* 左侧状态色条 */
+.status-bar {
+  width: 3px;
+  flex-shrink: 0;
+  background: var(--status-color);
 }
 
 .row-main {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  padding: 10px 14px;
+  min-width: 0;
 }
 
 .row-title {
@@ -176,13 +201,14 @@ const lastYearDisplay = computed(() => {
 
 .status-tag {
   flex-shrink: 0;
+  border-radius: var(--radius-pill) !important;
 }
 
 /* 核心数据字段横向排列 */
 .row-fields {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 20px;
+  gap: 10px 20px;
 }
 
 .field {
@@ -193,7 +219,7 @@ const lastYearDisplay = computed(() => {
 }
 
 .field-label {
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
   font-size: 12px;
   white-space: nowrap;
 }
@@ -203,15 +229,16 @@ const lastYearDisplay = computed(() => {
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .field-slash {
   font-size: 13px;
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
 }
 
 .field-pending {
-  color: var(--el-text-color-placeholder);
+  color: var(--text-disabled);
 }
 
 .field-text {
@@ -221,6 +248,7 @@ const lastYearDisplay = computed(() => {
 
 .field-tag {
   flex-shrink: 0;
+  border-radius: var(--radius-pill) !important;
 }
 
 .field-note {
@@ -238,6 +266,15 @@ const lastYearDisplay = computed(() => {
   gap: 4px;
   font-size: 12px;
   color: var(--warning-color);
+  padding: 4px 8px;
+  background: var(--warning-light);
+  border-radius: var(--radius-sm);
+}
+
+.reason-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
 }
 
 .reason-text {
@@ -248,6 +285,11 @@ const lastYearDisplay = computed(() => {
 .desc-collapse {
   margin-top: 2px;
   border: none;
+}
+
+.desc-collapse :deep(.arco-collapse-item-header) {
+  font-size: 12px;
+  color: var(--text-tertiary);
 }
 
 .description-text {

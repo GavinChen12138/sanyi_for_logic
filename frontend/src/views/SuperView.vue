@@ -187,23 +187,51 @@ onMounted(async () => {
 
 <template>
   <div class="page-container">
-    <a-tabs v-model:active-key="activeTab">
-      <!-- 版本管理 -->
-      <a-tab-pane title="📦 版本管理" key="versions">
-        <div class="tab-header">
-          <a-button type="primary" @click="uploadDialogVisible = true">
-            <template #icon><icon-upload /></template>
-            上传新版本
-          </a-button>
-        </div>
-        <a-table :data="versions" :loading="versionsLoading" :stripe="true">
+    <!-- 页面标题区 -->
+    <div class="page-header">
+      <h1 class="page-title">数据管理</h1>
+      <p class="page-subtitle">管理高校数据版本、逐条编辑专业组信息</p>
+    </div>
+
+    <!-- Tab 切换 -->
+    <div class="tab-bar">
+      <div
+        class="tab-item"
+        :class="{ 'tab-item--active': activeTab === 'versions' }"
+        @click="activeTab = 'versions'"
+      >
+        <icon-history class="tab-icon" />
+        版本管理
+      </div>
+      <div
+        class="tab-item"
+        :class="{ 'tab-item--active': activeTab === 'edit' }"
+        @click="activeTab = 'edit'"
+      >
+        <icon-edit class="tab-icon" />
+        逐条编辑
+      </div>
+    </div>
+
+    <!-- 版本管理 -->
+    <template v-if="activeTab === 'versions'">
+      <div class="section-action-bar">
+        <a-button type="primary" @click="uploadDialogVisible = true" class="action-btn">
+          <template #icon><icon-upload /></template>
+          上传新版本
+        </a-button>
+      </div>
+      <a-card :bordered="false" class="data-card">
+        <a-table :data="versions" :loading="versionsLoading" :stripe="true" :hoverable="true" class="data-table">
           <template #columns>
             <a-table-column title="版本" :width="80">
-              <template #cell="{ record }">v{{ record.version_no }}</template>
+              <template #cell="{ record }">
+                <span class="version-badge">v{{ record.version_no }}</span>
+              </template>
             </a-table-column>
             <a-table-column title="状态" :width="100" align="center">
               <template #cell="{ record }">
-                <a-tag :color="record.is_active ? 'green' : 'gray'" size="small">
+                <a-tag :color="record.is_active ? 'green' : 'gray'" size="small" class="status-pill">
                   {{ record.is_active ? '当前使用' : '历史' }}
                 </a-tag>
               </template>
@@ -214,72 +242,81 @@ onMounted(async () => {
             <a-table-column data-index="uploaded_by_name" title="操作人" :width="100" />
             <a-table-column title="上传时间" :width="160">
               <template #cell="{ record }">
-                {{ record.uploaded_at ? new Date(record.uploaded_at).toLocaleString('zh-CN') : '-' }}
+                <span class="time-text">
+                  {{ record.uploaded_at ? new Date(record.uploaded_at).toLocaleString('zh-CN') : '-' }}
+                </span>
               </template>
             </a-table-column>
             <a-table-column title="操作" :width="160" fixed="right">
               <template #cell="{ record }">
-                <a-button type="text" size="small" @click="handleDownload(record)">下载</a-button>
-                <a-button type="text" status="warning" size="small" :disabled="record.is_active" @click="handleRollback(record)">
-                  回滚
-                </a-button>
+                <a-space>
+                  <a-button type="text" size="small" @click="handleDownload(record)">
+                    <template #icon><icon-download /></template>
+                    下载
+                  </a-button>
+                  <a-button type="text" status="warning" size="small" :disabled="record.is_active" @click="handleRollback(record)">
+                    <template #icon><icon-undo /></template>
+                    回滚
+                  </a-button>
+                </a-space>
               </template>
             </a-table-column>
           </template>
         </a-table>
-      </a-tab-pane>
+      </a-card>
+    </template>
 
-      <!-- 逐条编辑 -->
-      <a-tab-pane title="✏️ 逐条编辑" key="edit">
-        <div class="tab-header">
-          <a-input
-            v-model="searchKey"
-            placeholder="搜索院校名称或标签..."
-            allow-clear
-            style="max-width: 320px"
-            @input="filterSchools"
-          >
-            <template #prefix><icon-search /></template>
-          </a-input>
-        </div>
-        <div class="schools-list">
-          <a-spin :loading="schoolsLoading" style="width: 100%; min-height: 200px;">
-            <a-collapse>
-              <a-collapse-item
-                v-for="school in filteredSchools"
-                :key="school.id"
-                :header="school.name"
-              >
-                <template #header>
-                  <span class="school-collapse-title">
-                    {{ school.name }}
-                    <a-tag v-for="tag in school.tags" :key="tag" size="small" color="arcoblue" style="margin-left: 6px">
-                      {{ tag }}
-                    </a-tag>
-                    <span class="group-count">（{{ school.groups.length }} 个专业组）</span>
-                  </span>
+    <!-- 逐条编辑 -->
+    <template v-if="activeTab === 'edit'">
+      <div class="section-action-bar">
+        <a-input
+          v-model="searchKey"
+          placeholder="搜索院校名称或标签..."
+          allow-clear
+          class="search-input"
+          @input="filterSchools"
+        >
+          <template #prefix><icon-search /></template>
+        </a-input>
+      </div>
+      <a-card :bordered="false" class="data-card">
+        <a-spin :loading="schoolsLoading" style="width: 100%; min-height: 200px;">
+          <a-collapse class="schools-collapse">
+            <a-collapse-item
+              v-for="school in filteredSchools"
+              :key="school.id"
+              :header="school.name"
+            >
+              <template #header>
+                <span class="school-collapse-title">
+                  {{ school.name }}
+                  <a-tag v-for="tag in school.tags" :key="tag" size="small" color="arcoblue" class="school-tag">
+                    {{ tag }}
+                  </a-tag>
+                  <span class="group-count">{{ school.groups.length }} 个专业组</span>
+                </span>
+              </template>
+              <a-table :data="school.groups" size="small" :stripe="true" :hoverable="true">
+                <template #columns>
+                  <a-table-column data-index="name" title="专业组" :width="180" />
+                  <a-table-column data-index="entry_rule_text" title="准入规则" :width="120" />
+                  <a-table-column data-index="preliminary_line" title="实际通过线" :width="90" />
+                  <a-table-column data-index="admission_count" title="招生人数" :width="90" />
+                  <a-table-column title="操作" :width="80" fixed="right">
+                    <template #cell="{ record }">
+                      <a-button type="text" size="small" @click="openEditDialog(school.id, record.id)">
+                        <template #icon><icon-edit /></template>
+                        编辑
+                      </a-button>
+                    </template>
+                  </a-table-column>
                 </template>
-                <a-table :data="school.groups" size="small" :stripe="true">
-                  <template #columns>
-                    <a-table-column data-index="name" title="专业组" :width="180" />
-                    <a-table-column data-index="entry_rule_text" title="准入规则" :width="120" />
-                    <a-table-column data-index="preliminary_line" title="实际通过线" :width="90" />
-                    <a-table-column data-index="admission_count" title="招生人数" :width="90" />
-                    <a-table-column title="操作" :width="80" fixed="right">
-                      <template #cell="{ record }">
-                        <a-button type="text" size="small" @click="openEditDialog(school.id, record.id)">
-                          编辑
-                        </a-button>
-                      </template>
-                    </a-table-column>
-                  </template>
-                </a-table>
-              </a-collapse-item>
-            </a-collapse>
-          </a-spin>
-        </div>
-      </a-tab-pane>
-    </a-tabs>
+              </a-table>
+            </a-collapse-item>
+          </a-collapse>
+        </a-spin>
+      </a-card>
+    </template>
 
     <!-- 上传弹窗 -->
     <a-modal v-model:visible="uploadDialogVisible" title="上传新版本" :width="500" unmount-on-close @cancel="uploadDialogVisible = false" @ok="handleUpload" :ok-loading="uploading" ok-text="确认上传">
@@ -345,23 +382,137 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.tab-header {
+/* ── 页面头部 ── */
+.page-header {
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ── 自定义 Tab ── */
+.tab-bar {
+  display: flex;
+  gap: 4px;
+  background: white;
+  padding: 4px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.tab-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  user-select: none;
+}
+
+.tab-item:hover {
+  color: var(--primary-color);
+  background: var(--primary-light);
+}
+
+.tab-item--active {
+  background: var(--primary-color) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(22, 93, 255, 0.3);
+}
+
+.tab-icon {
+  font-size: 16px;
+}
+
+/* ── 操作栏 ── */
+.section-action-bar {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 16px;
+}
+
+.action-btn {
+  border-radius: var(--radius-md);
+  font-weight: 600;
+}
+
+.search-input {
+  max-width: 360px;
+  border-radius: var(--radius-md) !important;
+}
+
+/* ── 数据卡片 ── */
+.data-card {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* 版本号 badge */
+.version-badge {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 状态 pill */
+.status-pill {
+  border-radius: var(--radius-pill) !important;
+}
+
+/* 时间文字 */
+.time-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 表格 hover */
+.data-table :deep(.arco-table-tr:hover .arco-table-td) {
+  background: var(--primary-light) !important;
+}
+
+/* ── 学校折叠 ── */
+.schools-collapse :deep(.arco-collapse-item-header) {
+  padding: 12px 16px;
 }
 
 .school-collapse-title {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.school-tag {
+  border-radius: var(--radius-pill) !important;
 }
 
 .group-count {
-  color: var(--text-secondary);
-  font-size: 13px;
-  margin-left: 8px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 4px;
 }
 
 .schools-list {
