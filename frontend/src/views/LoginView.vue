@@ -54,8 +54,8 @@ async function handleLogin() {
           <div class="login-logo">
             <icon-apps :size="28" />
           </div>
-          <h1 class="login-title">三位一体筛查工具</h1>
-          <p class="login-subtitle">浙江三位一体招生快速匹配系统</p>
+          <h1 class="login-title">辑课规划师系统</h1>
+          <p class="login-subtitle">浙江辑课规划师规划系统</p>
         </div>
 
         <a-form
